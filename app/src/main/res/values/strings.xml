@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ShowSeek</string>
+    <string name="titulo_1">ShowSeek - Salidas Rápidas</string>
+    <string name="refrescar">Refrescar</string>
 </resources>
