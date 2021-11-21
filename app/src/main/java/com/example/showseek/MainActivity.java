@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 variable = String.valueOf(entrada.getText());
                 Log.d("Dato ingresado: ", variable);
+                Log.d("Dato ingresado: ", "xxxxxxx");
             }
         });
     }
