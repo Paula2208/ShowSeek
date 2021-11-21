@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 variable = String.valueOf(entrada.getText());
                 Log.d("Dato ingresado: ", variable);
                 Log.d("Dato ingresado: ", "-----------------------------------------------------------------------------------------");
+                salida.setText(variable);
             }
         });
     }
