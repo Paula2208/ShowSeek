@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Dato ingresado: ", variable);
                 Log.d("", queue.getMessage());
                 Log.d("Dato ingresado: ", "-----------------------------------------------------------------------------------------");
+                salida.setText(variable);
             }
         });
     }
