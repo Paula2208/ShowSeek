@@ -1,25 +1,25 @@
 package com.example.showseek;
 
-public class CircularQueue {
+public class CircularQueue <T>{
     int read;
     int write;
     int size;
-    int numbers[];
-    String words[];
-
-    CircularQueue (int size, boolean number) {
-        read = -1;
-        write = -1;
-        this.size = size;
-        this.numbers = new int[size];
-
-    }
+    T[] array;
 
     CircularQueue (int size) {
         read = -1;
         write = -1;
         this.size = size;
-        this.words = new String[size];
+        array =(T[]) new Object[size];
+
+    }
+
+    CircularQueue () {
+        size = 10000;
+        read = -1;
+        write = -1;
+        this.size = size;
+        array =(T[]) new Object[size];
 
     }
 
@@ -41,7 +41,7 @@ public class CircularQueue {
         return false;
     }
 
-    String enQueue (int element, boolean number){
+    String enQueue (T element){
         if (isFull()){
             return "Circular Queue is full";
         }else{
@@ -49,69 +49,24 @@ public class CircularQueue {
                 read = 0;
             }
             write = (write + 1) % size;
-            numbers[write] = element;
-            return "Element added to the Circular Queue";
-        }
-    }
-
-    String enQueue (String element){
-        if (isFull()){
-            return "Circular Queue is full";
-        }else{
-            if (read == -1){
-                read = 0;
-            }
-            write = (write + 1) % size;
-            words[write] = element;
-            return "Element added to the Circular Queue";
-        }
-    }
-
-    int deQueue(boolean number) {
-        int element;
-        if (isEmpty()){
-            return -1;
-        }else{
-            element = numbers[read];
-            if (read == write){
-                read = -1;
-                write = -1;
-            }else{
-                read = (read + 1) % size;
-            }
-            return (element);
+            array[write] = element;
+            return "Element added to the Circular Queue: " + element;
         }
     }
 
     String deQueue() {
-        String element;
+        T element;
         if (isEmpty()){
-            return "Circular Queue is empty";
+            return "Queue is empty" ;
         }else{
-            element = words[read];
+            element = array[read];
             if (read == write){
                 read = -1;
                 write = -1;
             }else{
                 read = (read + 1) % size;
             }
-            return (element);
-        }
-    }
-
-    String display(boolean number){
-        /*
-        Function to display status of Circular Queue
-         */
-        int i;
-        String display = "";
-        if (isEmpty()){
-            return "Empty Queue";
-        } else{
-            for (i = read; i!=write; i = (i+1) % size){
-                display = display + numbers[i] + ", ";
-            }
-            return "Items -> " + display;
+            return "Dequeued: " + element;
         }
     }
 
@@ -125,7 +80,7 @@ public class CircularQueue {
             return "Empty Queue";
         } else{
             for (i = read; i!=write; i = (i+1) % size){
-                display = display + words[i] + ", ";
+                display = display + array[i] + " ";
             }
             return "Items -> " + display;
         }

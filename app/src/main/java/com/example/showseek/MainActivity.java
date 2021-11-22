@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
         String prueba = "Se logró la salida por consola";
         Log.d("Salida: ",prueba);
+
+        CircularQueue cq = new CircularQueue(10);
+        Log.d("Enqueue:",cq.enQueue(1));
+        Log.d("Enqueue:",cq.enQueue(2));
+        Log.d("Enqueue:",cq.enQueue(3));
+        Log.d("Enqueue:",cq.enQueue(5));
+        Log.d("Dequeue:",cq.deQueue());
+        Log.d("Display:",cq.display());
+
     }
 
     public void refrescar(){

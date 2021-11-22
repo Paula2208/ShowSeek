@@ -12,8 +12,8 @@ public class StackRef {
         top = newp;
     }
     // Pop, elimina y toma el dato de arriba de la pila
-    public int pop() {
-        int info = -1;
+    public Object pop() {
+        Object info = -1;
         if (!this.empty()) {
             info = top.getData();
             top = top.getNext();

@@ -4,6 +4,7 @@ public class Node {
     //Atributes
     private Object data;
     private Node next;
+    private Node prev;
 
     //Constructors
     public Node(){
@@ -12,6 +13,7 @@ public class Node {
     public Node(Object data) {
         this.data = data;
         next = null;
+        prev = null;
     }
 
     //Methods
@@ -24,12 +26,21 @@ public class Node {
         this.data = data;
     }
 
-    //Next Node associated
+        //Next Node associated
     public Node getNext() {
         return next;
     }
-
+        //Set Next Node
     public void setNext(Node next) {
         this.next = next;
+    }
+
+        //Prev Node associated
+    public Node getPrev() {
+        return prev;
+    }
+        //Set Prev Node
+    public void setPrev(Node prev) {
+        this.prev = prev;
     }
 }
