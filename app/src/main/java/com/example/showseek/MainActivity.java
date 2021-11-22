@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView salida;
     EditText entrada;
     String variable;
-    QueueArray<String> queue;
+    QueueRef queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         salida = findViewById(R.id.salida_texto);
         entrada = findViewById(R.id.entrada_texto);
 
-        queue = new QueueArray<String>(5);
+        queue = new QueueRef();
 
         variable ="";
 
