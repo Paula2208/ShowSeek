@@ -1,36 +1,59 @@
 package com.example.showseek;
 
-public class StackArray {
-    private static final int N = 3;
-    private int top, sarray[];
-    // Constructor
+public class StackArray<T> {
+
+    //Atributes
+    private int sizeT = 1000;
+    private String message ="";
+    private int top;
+    private T[] sarray;
+
+    // Constructors
     public StackArray() {
-        this(N);
-    }
-    public StackArray(int n) {
         top = 0;
-        sarray = new int[n];
+        sarray =(T[]) new Object[sizeT];
     }
-    // Vacia?
+
+    public StackArray(int sizeT) {
+        top = 0;
+        this.sizeT = sizeT;
+        sarray =(T[]) new Object[sizeT];
+    }
+
+    //Methods
+        // Is Stack empty?
     public boolean empty() {
         return top <= 0;
     }
-    // Llena?
+
+        // Is Stack full?
     public boolean full() {
         return top >= sarray.length;
     }
-    // Pop, saca y toma el ultimo dato ingresado
-    public int pop() {
-        if(empty())
-            throw new RuntimeException("Stack is empty");
-        top--;
-        return sarray[top];
+
+        // Delete data at the top of stack
+    public T pop() {
+        T item = null;
+        if(empty()){
+            message = "Stack is empty: no items to pop";
+        }
+        else{
+            top--;
+            item = sarray[top];
+            message = "Element deleted: " + item ;
+        }
+        return item;
     }
-    // Push, añade un elemento arriba de la pila
-    public void push(int item) {
-        if(full())
-            throw new RuntimeException("Stack is full");
-        sarray[top]=item;
-        top++;
+
+        // Add data at the top of the stack
+    public void push(T item) {
+        if(full()){
+            message = "Stack is full: Item not added";
+        }
+        else{
+            sarray[top] = item;
+            top++;
+            message = "Element added: " + item ;
+        }
     }
 }

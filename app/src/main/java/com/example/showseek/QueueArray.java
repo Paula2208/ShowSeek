@@ -3,12 +3,12 @@ package com.example.showseek;
 public class QueueArray<T> {
 
     //Atributes
-    public int sizeT = 1000;
-    public int front;
-    public int rear;
-    public int csize;
-    public String message ="";
-    public T[] array;
+    private int sizeT = 1000;
+    private int front;
+    private int rear;
+    private int csize;
+    private String message ="";
+    private T[] array;
 
     //constructors
     public QueueArray(){
@@ -41,7 +41,9 @@ public class QueueArray<T> {
         array =(T[]) new Object[sizeT];
     }
 
-    //Add a new element
+    //Methods
+
+        //Add a new element
     public void enqueue(T element){
 
         if(full()){
@@ -55,7 +57,7 @@ public class QueueArray<T> {
         }
     }
 
-    //Delete an element
+        //Delete an element
     public T dequeue(){
 
         T element = null;
@@ -72,24 +74,64 @@ public class QueueArray<T> {
         return element;
     }
 
-    //Is the Queue empty?
+        //Is the Queue empty?
     public boolean empty(){
         return csize <= 0;
     }
 
-    //Is the Queue full?
+        //Is the Queue full?
     public boolean full(){
         return csize >= sizeT;
     }
 
-    //Information
+    //Getters and Setters
+        //Information
     public String getMessage(){
         return this.message;
     }
 
-    //Number of elements on queue
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+        //Number of elements on queue
     public int getSize(){
         return this.csize;
     }
 
+        //Maximun size of the queue
+    public int getSizeT() {
+        return sizeT;
+    }
+
+    public void setSizeT(int sizeT) {
+        this.sizeT = sizeT;
+    }
+
+        //Front
+    public int getFront() {
+        return front;
+    }
+
+    public void setFront(int front) {
+        this.front = front;
+    }
+
+        //Rear
+    public int getRear() {
+        return rear;
+    }
+
+    public void setRear(int rear) {
+        this.rear = rear;
+    }
+
+        //Array
+    public T[] getArray() {
+        return array;
+    }
+
+    public void setArray(T[] array) {
+        this.array = array;
+    }
 }
