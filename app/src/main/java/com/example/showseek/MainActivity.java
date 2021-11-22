@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView salida;
     EditText entrada;
     String variable;
+    QueueArray<String> queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         salida = findViewById(R.id.salida_texto);
         entrada = findViewById(R.id.entrada_texto);
+
+        queue = new QueueArray<String>(5);
 
         variable ="";
 
@@ -42,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
                     salida.setText("Se activa el botón refrescar");
                 }
                 else{
-                    salida.setText(variable);
+                    String s = "";
+
+                    for(int i=0; i <=queue.getSize(); i++){
+                        s = s + " | " + queue.dequeue();
+                    }
+                    salida.setText(s);
                 }
 
             }
@@ -54,7 +62,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 variable = String.valueOf(entrada.getText());
+                queue.enqueue(variable);
+                salida.setText(variable);
                 Log.d("Dato ingresado: ", variable);
+                Log.d("", queue.getMessage());
                 Log.d("Dato ingresado: ", "-----------------------------------------------------------------------------------------");
                 salida.setText(variable);
             }
