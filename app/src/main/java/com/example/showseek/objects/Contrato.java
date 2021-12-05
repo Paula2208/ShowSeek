@@ -1,6 +1,6 @@
 package com.example.showseek.objects;
 
-public class Contrato {
+public class Contrato implements Comparable<Contrato>{
 
     //Atributes
     private int ID_artista;
@@ -116,5 +116,21 @@ public class Contrato {
     public Factura getFactura(){
         Factura factura = new Factura(ID_cliente,ID_artista,costo_final);
         return factura;
+    }
+
+    //Sort by the ID_cliente
+    @Override
+    public int compareTo(Contrato o) {
+        int comparation = 0;
+        if(ID_cliente>o.getID_cliente()){
+            comparation = 1;
+        }
+        else if(ID_cliente<o.getID_cliente()){
+            comparation = -1;
+        }
+        else{
+            comparation = 0;
+        }
+        return comparation;
     }
 }

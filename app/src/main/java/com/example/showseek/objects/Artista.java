@@ -1,10 +1,11 @@
 package com.example.showseek.objects;
 
-public class Artista extends Usuario{
+public class Artista extends Usuario implements Comparable<Artista>{
 
     //Atributes
     private String tipoAgrupacion;
     private String generoMusical;
+    private int totalRecomendacion=0;
 
     //Constructor
     public Artista(int ID, String nombre, String apellido, String correo,
@@ -30,5 +31,21 @@ public class Artista extends Usuario{
 
     public void setGeneroMusical(String generoMusical) {
         this.generoMusical = generoMusical;
+    }
+
+    //Methods
+    @Override
+    public int compareTo(Artista o) {
+        int comparation = 0;
+        if(super.getID()>o.getID()){
+            comparation = 1;
+        }
+        else if(super.getID()<o.getID()){
+            comparation = -1;
+        }
+        else{
+            comparation = 0;
+        }
+        return comparation;
     }
 }

@@ -1,6 +1,13 @@
 package com.example.showseek.objects;
 
-public class Cliente extends Usuario {
+import com.example.showseek.estructures.references.single.LinkedList;
+
+public class Cliente extends Usuario implements Comparable<Cliente>{
+
+    //--------------------------Pruebas-------------
+    //Atributes
+    private LinkedList<Integer> recomendados;
+    //----------------------------------------------
 
     //Atributes
     private String[] pref_Musical;
@@ -24,5 +31,20 @@ public class Cliente extends Usuario {
 
     public void setPref_Musical(String[] pref_Musical) {
         this.pref_Musical = pref_Musical;
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        int comparation = 0;
+        if(super.getID()>o.getID()){
+            comparation = 1;
+        }
+        else if(super.getID()<o.getID()){
+            comparation = -1;
+        }
+        else{
+            comparation = 0;
+        }
+        return comparation;
     }
 }
