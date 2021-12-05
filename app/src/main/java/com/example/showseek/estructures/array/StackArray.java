@@ -1,59 +1,27 @@
 package com.example.showseek.estructures.array;
 
-public class StackArray<T> {
+public class StackArray<T extends Comparable<T>> extends ListArray<T> {
 
-    //Atributes
-    private int sizeT = 1000;
-    private String message ="";
-    private int top;
-    private T[] sarray;
-
-    // Constructors
-    public StackArray() {
-        top = 0;
-        sarray =(T[]) new Object[sizeT];
-    }
-
-    public StackArray(int sizeT) {
-        top = 0;
-        this.sizeT = sizeT;
-        sarray =(T[]) new Object[sizeT];
+    //Constructor
+    public StackArray(){
+        super();
     }
 
     //Methods
-        // Is Stack empty?
-    public boolean empty() {
-        return top <= 0;
+
+    //Add to the tail of the linkedList
+    public void push(T item){
+        super.pushBack(item);
     }
 
-        // Is Stack full?
-    public boolean full() {
-        return top >= sarray.length;
+    //Delete from the tail of the linkedList
+    public T pop(){
+        return super.popBack();
     }
 
-        // Delete data at the top of stack
-    public T pop() {
-        T item = null;
-        if(empty()){
-            message = "Stack is empty: no items to pop";
-        }
-        else{
-            top--;
-            item = sarray[top];
-            message = "Element deleted: " + item ;
-        }
-        return item;
+    //Get the item at the tail of the linkedList
+    public T top(){
+        return super.topBack();
     }
 
-        // Add data at the top of the stack
-    public void push(T item) {
-        if(full()){
-            message = "Stack is full: Item not added";
-        }
-        else{
-            sarray[top] = item;
-            top++;
-            message = "Element added: " + item ;
-        }
-    }
 }
