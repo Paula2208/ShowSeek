@@ -1,4 +1,4 @@
-package com.example.showseek;
+package com.example.showseek.layout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,13 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
+import com.example.showseek.R;
+
 public class MainActivity extends AppCompatActivity {
 
+    //Atributes
     Button b1, b2;
     TextView salida;
     EditText entrada;
-    String variable;
-    QueueRef queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         salida = findViewById(R.id.salida_texto);
         entrada = findViewById(R.id.entrada_texto);
-
-        queue = new QueueRef();
-
-        variable ="";
 
         refrescar();
         ingresar();
@@ -41,18 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(variable == ""){
-                    salida.setText("Se activa el botón refrescar");
-                }
-                else{
-                    String s = "";
-
-                    for(int i=0; i <=queue.getSize(); i++){
-                        s = s + " | " + queue.dequeue();
-                    }
-                    salida.setText(s);
-                }
-
             }
         });
     }
@@ -61,13 +46,7 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                variable = String.valueOf(entrada.getText());
-                queue.enqueue(variable);
-                salida.setText(variable);
-                Log.d("Dato ingresado: ", variable);
-                Log.d("", queue.getMessage());
-                Log.d("Dato ingresado: ", "-----------------------------------------------------------------------------------------");
-                salida.setText(variable);
+
             }
         });
     }

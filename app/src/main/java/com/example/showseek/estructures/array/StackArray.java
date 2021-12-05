@@ -1,4 +1,4 @@
-package com.example.showseek;
+package com.example.showseek.estructures.array;
 
 public class StackArray<T> {
 
