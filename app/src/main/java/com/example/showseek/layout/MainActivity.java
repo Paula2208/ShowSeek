@@ -1,5 +1,6 @@
 package com.example.showseek.layout;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,13 +8,18 @@ import android.view.View;
 import android.widget.*;
 
 import com.example.showseek.R;
+import com.example.showseek.estructures.references.single.*;
+import com.example.showseek.objects.*;
 
 public class MainActivity extends AppCompatActivity {
 
     //Atributes
-    Button b1, b2;
+    Button b1, b2, b3;
     TextView salida;
     EditText entrada;
+    LinkedList<Cliente> registros;
+    StackRef<String> repertorio;
+    QueueRef<String> contratos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,31 +28,138 @@ public class MainActivity extends AppCompatActivity {
 
         b1 = findViewById(R.id.b_ingresar);
         b2 = findViewById(R.id.b_refrescar);
+        b3 = findViewById(R.id.btn_Opcion);
 
         salida = findViewById(R.id.salida_texto);
         entrada = findViewById(R.id.entrada_texto);
 
-        refrescar();
-        ingresar();
+        registros = new LinkedList<Cliente>();
+        repertorio = new StackRef<String>();
+        contratos = new QueueRef<String>();
 
-        String prueba = "Se logró la salida por consola";
+        String c1 = "Hola! \nQuiero contrartarte para \nuna boda al aire libre. Seria maravilloso\n tomar tus servicios el 12 de diciembre.\n\n\tCliente: Francesca";
+        String c2 = "Hola! \nQuiero contrartarte para \nuna fiesta de 50 años. Seria maravilloso\n tomar tus servicios el 8 de diciembre.\n\n\tCliente: Santiago";
+        String c3 = "Hola! \nQuiero contrartarte para \nuna boda al aire libre. Seria maravilloso\n tomar tus servicios el 2 de Enero.\n\n\tCliente: César";
+        String c4 = "Hola! \nQuiero contrartarte para \nuna lunada de reencuentro. Seria maravilloso\n tomar tus servicios el 7 de diciembre.\n\n\tCliente: Esteban";
+        contratos.enqueue(c1);
+        contratos.enqueue(c2);
+        contratos.enqueue(c3);
+        contratos.enqueue(c4);
+
+        opcion();
+
+        String prueba = "Se entra a opciones";
         Log.d("Salida: ",prueba);
     }
 
-    public void refrescar(){
+    public void opcion(){
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Se entra a : ","Botón Opción");
+                salida.setText("Ingresa la opción que deseas utilizar\n1. Registrar Nuevo Usuario\n2. Creación de Repertorio\n3. Ver Repertorio\n 4. Ver Contratos");
+                String opcion = String.valueOf(entrada.getText());
+                if("1".equals(opcion)){
+                    Log.d("Se entra a : ","Registro de Usuario");
+                    salida.setText("Ingresa los datos del nuevo usuario separados por comas");
+                    entrada.setText("");
+                    registrar();
+                }
+                else if("2".equals(opcion)){
+                    Log.d("Se entra a : ","Entrada de Repertorio");
+                    salida.setText("Ingresa las canciones  de menor a mayor importancia");
+                    entrada.setText("");
+                    repertorio1();
+                }
+                else if("3".equals(opcion)){
+                    Log.d("Se entra a : ","Salida de Repertorio");
+                    salida.setText("En refrescar verás las canciones de la más importante a\n menos importante");
+                    entrada.setText("");
+                    repertorio2();
+                }
+                else if("4".equals(opcion)){
+                    salida.setText("En refrescar verás los contratos añadidos en orden de pedido");
+                    Log.d("Se entra a : ","Visualización de Contratos");
+                    entrada.setText("");
+                    contrato();
+                }
+            }
+        });
+    }
+
+
+    public void repertorio2(){
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Se oprimió Refrescar: ","Salida de Repertorio");
+                String a=repertorio.pop();
+
+                if(a != null){
+                    salida.setText(a);
+                }
+                else {
+                    salida.setText("No hay más canciones para mostrar");
+                }
+            }
+        });
+    }
+
+    public void contrato(){
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Se oprimió Refrescar: ","Vizualización de Contratos");
+                String a=contratos.dequeue();
+
+                if(a != null){
+                    salida.setText(a);
+                }
+                else {
+                    salida.setText("No hay más solicitudes para eventos");
+                }
 
             }
         });
     }
 
-    public void ingresar(){
+    public void registrar(){
+        b1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onClick(View v) {
+                Log.d("Se oprimió Ingresar : ","Registrar nuevo Usuario");
+                String[] datos = String.valueOf(entrada.getText()).split(",");
+                Cliente last = registros.topBack();
+                Cliente user;
+                try{
+                    if(last != null){
+                        user = new Cliente(last.getID()+1, datos[0], datos[1], datos[2],datos[3], datos[4],datos[5], datos[6],datos[7]);
+                    }
+                    else{
+                        user = new Cliente(1, datos[0], datos[1], datos[2],datos[3], datos[4],datos[5], datos[6],datos[7]);
+                    }
+                    registros.pushBack(user);
+                    Log.d("Registro: ","Se ha añadido un nuevo usuario con el ID: " + user.getID());
+                }
+                catch(Exception e){
+                    Log.d("Ingreso de Datos de usuario por 'Ingresar' : ","Seleccionar nueva opción");
+                }
+
+
+            }
+        });
+    }
+
+    public void repertorio1(){
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d("Se oprimió Ingresar : ","Entrada de Repertorio");
+                String cancion = String.valueOf(entrada.getText());
+                repertorio.push(cancion);
+                Log.d("Repertorio: ","Se ha añadido una nueva canción a la cola :"+repertorio.top());
+                entrada.setText("");
             }
         });
     }

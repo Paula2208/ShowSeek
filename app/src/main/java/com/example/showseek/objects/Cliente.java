@@ -14,7 +14,7 @@ public class Cliente extends Usuario implements Comparable<Cliente>{
 
     //Constructor
     public Cliente(int ID_cliente, String nombre_Cliente, String apellido_Cliente,
-                   String correo_Cliente, int telefono_Cliente, String ciudad_Cliente,
+                   String correo_Cliente, String telefono_Cliente, String ciudad_Cliente,
                    String fecha_Nacimiento_Cliente, String pref1, String pref2) {
         super(ID_cliente, nombre_Cliente, apellido_Cliente,correo_Cliente,
                 telefono_Cliente,ciudad_Cliente,fecha_Nacimiento_Cliente);

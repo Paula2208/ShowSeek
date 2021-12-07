@@ -151,11 +151,19 @@ public class LinkedList<T extends Comparable<T>> {
 
     //Search Methods
     public T topFront(){
-        return head.getData();
+        T s = null;
+        if(!empty()){
+            s=head.getData();
+        }
+        return s;
     }
 
     public T topBack(){
-        return tail.getData();
+        T s = null;
+        if(tail != null){
+            s=tail.getData();
+        }
+        return s;
     }
 
     //Returns the first node with the item given
