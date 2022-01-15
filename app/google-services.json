@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1021758025819",
+    "project_id": "showseek-e096b",
+    "storage_bucket": "showseek-e096b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021758025819:android:a109d7831aafa60b89cf7e",
+        "android_client_info": {
+          "package_name": "com.example.showseek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021758025819-8kh4t8adrehne8mv7rclsvkodnkvcc7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD256dnEagasOISwk8rVViVOPPxguORdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021758025819-8kh4t8adrehne8mv7rclsvkodnkvcc7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
