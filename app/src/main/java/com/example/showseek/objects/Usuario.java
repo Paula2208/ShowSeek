@@ -10,6 +10,8 @@ public class Usuario {
     private String ciudad;
     private String fecha_nacimiento;
 
+    // Implementar un nickname
+
     //Constructor
     public Usuario(int ID, String nombre, String apellido,
                    String correo, String telefono, String ciudad,
