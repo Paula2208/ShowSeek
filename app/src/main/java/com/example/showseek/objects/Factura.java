@@ -1,6 +1,6 @@
 package com.example.showseek.objects;
 
-public class Factura {
+public class Factura implements Comparable<Factura>{
     //Atributes
     private int ID_Cliente;
     private int ID_artista;
@@ -36,5 +36,21 @@ public class Factura {
 
     public void setCosto_final(int costo_final) {
         this.costo_final = costo_final;
+    }
+
+    //Order by the cost
+    @Override
+    public int compareTo(Factura o) {
+        int comparation = 0;
+        if(costo_final>o.getCosto_final()){
+            comparation = 1;
+        }
+        else if(costo_final<o.getCosto_final()){
+            comparation = -1;
+        }
+        else{
+            comparation = 0;
+        }
+        return comparation;
     }
 }

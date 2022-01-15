@@ -89,7 +89,9 @@ public class DoubleLinkedList<T extends Comparable<T>> extends LinkedList<T> {
         if(!empty()){
             s = head.getData();
             head = head.getNext();
-            head.setBack(null);
+            if(head != null){
+                head.setBack(null);
+            }
             super.setSize(super.getSize()-1);
             if(head == null){
                 tail = null;
@@ -146,23 +148,8 @@ public class DoubleLinkedList<T extends Comparable<T>> extends LinkedList<T> {
     //Returns the first node with the item given
     @Override
     public DoubleNode<T> searchNode(T item){
-        DoubleNode<T> pos = new DoubleNode<T>();
+        DoubleNode<T> pos = head;
         for(int i=0; i<super.getSize(); i++){
-            if(pos.getData().compareTo(item) == 0){
-                break;
-            }
-            else{
-                pos = pos.getNext();
-            }
-        }
-        return pos;
-    }
-
-    //Returns the first node with the item given begining from the index given
-    @Override
-    public Node<T> searchNode(T item, int index){
-        DoubleNode<T> pos = new DoubleNode<T>();
-        for(int i=index; i<super.getSize(); i++){
             if(pos.getData().compareTo(item) == 0){
                 break;
             }
@@ -176,7 +163,7 @@ public class DoubleLinkedList<T extends Comparable<T>> extends LinkedList<T> {
     @Override
     public boolean find(T item){
         boolean s = false;
-        DoubleNode<T> pos = new DoubleNode<T>();
+        DoubleNode<T> pos = head;
         for(int i=0; i<super.getSize(); i++){
             if(pos.getData().compareTo(item) == 0){
                 s=true;

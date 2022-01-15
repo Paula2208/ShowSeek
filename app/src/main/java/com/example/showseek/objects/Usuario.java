@@ -6,13 +6,15 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String correo;
-    private int telefono;
+    private String telefono;
     private String ciudad;
     private String fecha_nacimiento;
 
+    // Implementar un nickname
+
     //Constructor
     public Usuario(int ID, String nombre, String apellido,
-                   String correo, int telefono, String ciudad,
+                   String correo, String telefono, String ciudad,
                    String fecha_nacimiento) {
         this.ID = ID;
         this.nombre = nombre;
@@ -56,11 +58,11 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

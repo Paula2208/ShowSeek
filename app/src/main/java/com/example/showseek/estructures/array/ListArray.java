@@ -2,118 +2,231 @@ package com.example.showseek.estructures.array;
 
 public class ListArray<T extends Comparable<T>>{
 
-    private int sizeT = 1000;
-    private int position, count;
-    private String message ="";
+    private int size;
+    private int capacity = 1000;
     private T larray[];
-    private T reference;
 
     //Constructors
     public ListArray() {
-        count = 0;
-        larray =(T[]) new Comparable[sizeT];
+        size = 0;
+        larray =(T[]) new Comparable[capacity];
     }
 
-    public ListArray(int sizeT) {
-        count = 0;
-        this.sizeT = sizeT;
-        larray =(T[]) new Comparable[sizeT];
+    public ListArray(int capacity) {
+        size = 0;
+        this.capacity = capacity;
+        larray =(T[]) new Comparable[capacity];
     }
 
     //Methods
         //Is the LinkedList empty?
     private boolean empty () {
-        return count <= 0;
+        return size <= 0;
     }
 
     private boolean full () {
-        return count >= sizeT;
+        return size >= capacity;
     }
 
-        //Is the LinkedList empty?
-    public boolean delete (T item) {
-        boolean deleted = false;
-        if (!empty()) {
-            if (search(item)) {
-                for (int j = position; j < count - 1; j++) {
-                    larray[j] = larray[j + 1];
-                }
-                count--;
-                deleted = true;
+    //Insert methods
+    public void pushFront(T item){
+        if(size+1 > capacity){
+            larray = increase();
+            for(int i=size-1; i>=0; i--){
+                larray[i+1] = larray[i];
             }
-            else {
-                message = "List is empty";
-            }
-        }
-        return deleted;
-
-    }
-
-        //Add a new item
-    public boolean insert (T item) {
-        boolean inserted = false;
-        if (!full()) {
-            if (!search(item)) {
-                for (int j = count; j > position; j--) {
-                    larray[j] = larray[j + 1];
-                }
-                larray[position] = item;
-                count++;
-                inserted = true;
-            } else {
-                message = "List is full: Item not added";
-            }
+            larray[0]= item;
+            size++;
         }
         else{
-
-        }
-        return inserted;
-    }
-
-        //Search a given item inside the list
-    public boolean search (T item) {
-        boolean found = false;
-        boolean stop = false;
-        position = 0;
-        while ((position != count) && !stop) {
-            if (larray[position].compareTo(item) >= 0) {
-                stop = true;
-                if (larray[position].compareTo(item) == 0)
-                    found = true;
+            for(int i=size-1; i>=0; i--){
+                larray[i+1] = larray[i];
             }
-            else {
-                position++;
-            }
+            larray[0]= item;
+            size++;
         }
-        return found;
     }
 
-        //Return an String with all the items
-    public String output () {
-        message ="The list contains: ";
-        int j = 0;
-        while (j != count) {
-            message = message + larray[j]+" ";
-            j++;
-        }
-        return message;
-    }
-
-        //Comparation
-    public int compareTo(T item) {
-        int result;
-
-        if(reference.compareTo(item)>0){
-            result = 1;
+    public void pushBack(T item){
+        if(size+1 > capacity){
+            larray = increase();
+            larray[size] = item;
+            size++;
         }
         else{
-            if(reference.compareTo(item)<0){
-                result = -1;
+            larray[size] = item;
+            size++;
+        }
+    }
+
+    public void push(int index, T item){
+        if(index == 0){
+            pushFront(item);
+        }
+        else{
+            if(size+1>capacity){
+                larray = increase();
+                for(int i=size-1; i>=index; i--){
+                    larray[i+1] = larray[i];
+                }
+                larray[index]= item;
+                size++;
             }
             else{
-                result = 0;
+                for(int i=size-1; i>=index; i--){
+                    larray[i+1] = larray[i];
+                }
+                larray[index]= item;
+                size++;
             }
         }
-        return result;
+    }
+
+    //Delete methods
+    public T popFront(){
+        T s = larray[0];
+        for(int i=0; i<size; i++){
+            larray[i]=larray[i+1];
+        }
+        larray[size-1]=null;
+        size--;
+        return s;
+    }
+
+    public T popBack(){
+        T s = larray[size-1];
+        larray[size-1]=null;
+        size--;
+        return s;
+    }
+
+    public T pop(int index){
+        T s = larray[index];
+        for(int i=index; i>size; i++){
+            larray[i]=larray[i+1];
+        }
+        larray[size-1]=null;
+        size--;
+        return s;
+    }
+
+    //Search methods
+    public T topFront(){
+        return larray[0];
+    }
+
+    public T topBack(){
+        return larray[size-1];
+    }
+
+    public boolean find(T item){
+        boolean n = false;
+        for(int i=0; i<size; i++){
+            if(larray[i]== item){
+                n = true;
+                break;
+            }
+        }
+        return n;
+    }
+
+    public T top(int index){
+        return larray[index];
+    }
+
+    //Returns the index of the first item equal to the parameter
+    public int searchIndex(T item){
+        int n = -1;
+        for(int i=0; i<size; i++){
+            if(larray[i]== item){
+                n = i;
+                break;
+            }
+        }
+        return n;
+    }
+
+    //Returns the index of item equals since the index
+    public int searchIndex(T item, int index){
+        int n = -1;
+        for(int i=index; i<size; i++){
+            if(larray[i]== item){
+                n = i;
+                break;
+            }
+        }
+        return n;
+    }
+
+    //Sort Method with bubble sort - Ascending 0 - Descending 1
+    public void sort(int order){
+        if(order == 0){
+            for(int i=0; i<size-1;i++){
+                for(int j=0; j<size-i-1; j++){
+                    if(larray[j].compareTo(larray[j+1])>0){
+                        T ac = larray[j];
+                        larray[j]=larray[j+1];
+                        larray[j+1]= ac;
+                    }
+                }
+            }
+        }
+        else if(order==1){
+            for(int i=0; i<size-1;i++){
+                for(int j=0; j<size-i-1; j++){
+                    if(larray[j].compareTo(larray[j+1])<0){
+                        T ac = larray[j];
+                        larray[j]=larray[j+1];
+                        larray[j+1]= ac;
+                    }
+                }
+            }
+        }
+    }
+
+    //Getters and Setters
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public T[] getLarray() {
+        return larray;
+    }
+
+    public void setLarray(T[] larray) {
+        this.larray = larray;
+    }
+
+
+    //Return a copy of the List
+    public ListArray<T> copy(){
+        ListArray<T> copy = new ListArray<T>(capacity);
+        for(int i=0; i<size; i++){
+            copy.pushBack(larray[i]);
+        }
+        return copy;
+    }
+
+    //Increase the size of the array
+    public T[] increase(){
+        int a = capacity*2;
+        T[] bigger = (T[]) new Comparable[capacity*2];
+        for(int i=0; i<size; i++){
+            bigger[i]=larray[i];
+        }
+        capacity = a;
+        return bigger;
     }
 }

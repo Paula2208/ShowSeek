@@ -58,9 +58,10 @@ public class LinkedList<T extends Comparable<T>> {
         else{
             Node<T> node = new Node<T>(item);
             Node<T> pos = new Node<T>();
+            pos= head;
 
-            for(int i=0; i<size; i++){
-                if(pos.getNext() == base){
+            while(pos != null){
+                if(pos.getNext() == base ){
                     node.setNext(base);
                     pos.setNext(node);
                     size++;
@@ -130,7 +131,7 @@ public class LinkedList<T extends Comparable<T>> {
                 s = popBack();
             }
             else{
-                Node<T> pos = new Node<T>();
+                Node<T> pos = head;
                 s = base.getData();
                 for(int i=0; i<size; i++){
                     if(pos.getNext() == base){
@@ -150,16 +151,24 @@ public class LinkedList<T extends Comparable<T>> {
 
     //Search Methods
     public T topFront(){
-        return head.getData();
+        T s = null;
+        if(!empty()){
+            s=head.getData();
+        }
+        return s;
     }
 
     public T topBack(){
-        return tail.getData();
+        T s = null;
+        if(tail != null){
+            s=tail.getData();
+        }
+        return s;
     }
 
     //Returns the first node with the item given
     public Node<T> searchNode(T item){
-        Node<T> pos = new Node<T>();
+        Node<T> pos = head;
         for(int i=0; i<size; i++){
             if(pos.getData().compareTo(item) == 0){
                 break;
@@ -173,7 +182,7 @@ public class LinkedList<T extends Comparable<T>> {
 
     //Returns the first node with the item given begining from the index given
     public Node<T> searchNode(T item, int index){
-        Node<T> pos = new Node<T>();
+        Node<T> pos = head;
         for(int i=index; i<size; i++){
             if(pos.getData().compareTo(item) == 0){
                 break;
@@ -188,6 +197,7 @@ public class LinkedList<T extends Comparable<T>> {
     public boolean find(T item){
         boolean s = false;
         Node<T> pos = new Node<T>();
+        pos = head;
         for(int i=0; i<size; i++){
             if(pos.getData().compareTo(item) == 0){
                 s=true;
