@@ -1,4 +1,4 @@
-package com.example.showseek.layout;
+package com.example.showseek;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
