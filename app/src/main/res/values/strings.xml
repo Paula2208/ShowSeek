@@ -2,4 +2,6 @@
     <string name="app_name">ShowSeek</string>
     <string name="titulo_1">ShowSeek - Salidas Rápidas</string>
     <string name="refrescar">Refrescar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
