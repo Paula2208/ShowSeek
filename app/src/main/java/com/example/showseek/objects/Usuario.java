@@ -35,6 +35,12 @@ public class Usuario {
         this.fecha_nacimiento = "";
     }
 
+    public Usuario(String fullname, String age, String correo){
+        this.nombre=fullname;
+        this.fecha_nacimiento = age;
+        this.correo = correo;
+    }
+
     //Getters and Setters
     public int getID() {
         return ID;
