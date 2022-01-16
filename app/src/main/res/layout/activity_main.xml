@@ -40,7 +40,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#EDA15D"
+        android:backgroundTint="#FF00FF"
         android:onClick="onClick"
         android:shadowColor="#332C2C"
         android:text="Ingresar"

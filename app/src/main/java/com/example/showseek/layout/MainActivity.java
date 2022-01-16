@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.*;
 
@@ -13,10 +14,20 @@ import com.example.showseek.R;
 import com.example.showseek.RegisterUser;
 import com.example.showseek.estructures.references.single.*;
 import com.example.showseek.objects.*;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView register;
+    private EditText editTextEmail, editTextPassword;
+    private Button singIn;
+
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
+
+
+    //MAPEO DE BOTONES ---------------------------------------------------------------------------------------
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +37,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
 
+        singIn = (Button) findViewById(R.id.botonLogin);
+        singIn.setOnClickListener(this);
+
+        editTextEmail = (EditText) findViewById(R.id.entradaCorreoLogin);
+        editTextPassword = (EditText) findViewById(R.id.entradaContraseña2);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
     }
 
     @Override
+
+    //Acciones al clickar -------------------------------------------------------------------------------------
+
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
@@ -36,7 +58,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
 
+            case R.id.botonLogin:
+                userLogin();
+                break;
+
         }
+    }
+
+    private void userLogin() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if(email.isEmpty()){
+            editTextEmail.setError("El email es necesario");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            editTextEmail.setError("Introduzca un email valido");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            editTextPassword.setError("La contraseña es necesaria");
+            editTextPassword.requestFocus();
+            return;
+        }
+        if(password.length() < 6){
+            editTextPassword.setError("La contraseña minima es de 7 caracteres");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+
+
     }
 
     /*
