@@ -1,4 +1,4 @@
-package com.example.showseek;
+package com.example.showseek.layout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.showseek.R;
 import com.example.showseek.layout.MainActivity;
 import com.example.showseek.objects.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;

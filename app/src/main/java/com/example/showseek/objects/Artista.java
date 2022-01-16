@@ -13,7 +13,7 @@ public class Artista extends Usuario implements Comparable<Artista>{
     public Artista(int ID, String nombre, String apellido, String correo,
                    String telefono, String ciudad, String fecha_nacimiento,
                    String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil) {
-        super(ID, nombre, apellido, correo, telefono, ciudad, fecha_nacimiento);
+        super(ID, nombre, correo, fecha_nacimiento);
         this.tipoAgrupacion = tipoAgrupacion;
         this.generoMusical = generoMusical;
         this.nombreArtistico = nombreArtistico;

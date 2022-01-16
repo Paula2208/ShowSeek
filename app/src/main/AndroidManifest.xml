@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShowSeek">
+
         <activity
-            android:name=".RegisterUser"
-            android:exported="false" />
+            android:name=".layout.RegisterUser"
+            android:exported="true"/>
+
+        <activity
+            android:name=".layout.InicioActivity"
+            android:exported="true"/>
+
         <activity
             android:name=".layout.MainActivity"
             android:exported="true">

@@ -1,23 +1,30 @@
 package com.example.showseek.layout;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.*;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.showseek.R;
-import com.example.showseek.RegisterUser;
-import com.example.showseek.estructures.references.single.*;
-import com.example.showseek.objects.*;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    //Atributos globales
     private TextView register;
+    private EditText editTextEmail, editTextPassword;
+    private Button singIn;
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
+    //Se infla la actividad con el xml activity_main y se instancian los botones
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +33,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
 
+        singIn = (Button) findViewById(R.id.botonLogin);
+        singIn.setOnClickListener(this);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        editTextEmail = findViewById(R.id.entradaCorreoLogin);
+        editTextPassword= findViewById(R.id.entradaContraseña2);
+
+        mAuth = FirebaseAuth.getInstance();
+
     }
 
+    //Actividades de los botones de la vesta inflada
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
-
-
+            case R.id.botonLogin:
+                userLogin();
+                break;
         }
+    }
+
+    private void userLogin() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if (email.isEmpty()) {
+            editTextEmail.setError("El email es necesario");
+            editTextEmail.requestFocus();
+            return;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Introduzca un email valido");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            editTextPassword.setError("La contraseña es necesaria");
+            editTextPassword.requestFocus();
+            return;
+        } else if (password.length() < 6) {
+            editTextPassword.setError("La contraseña minima es de 7 caracteres");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+                    //redirecciona al perfil de usuario----------------------------------------------------------------
+                    startActivity(new Intent(MainActivity.this, InicioActivity.class));
+
+                } else {
+                    Toast.makeText(MainActivity.this, "Error al conectar por favor revisar sus datos", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
     /*
