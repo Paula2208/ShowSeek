@@ -1,16 +1,12 @@
 package com.example.showseek.layout;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.showseek.R;
-import com.example.showseek.estructures.references.single.*;
-import com.example.showseek.objects.*;
 
 public class MainActivity extends AppCompatActivity {
 

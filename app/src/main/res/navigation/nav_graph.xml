@@ -7,24 +7,14 @@
 
     <fragment
         android:id="@+id/inicioFragment"
-        android:name="com.example.showseek.InicioFragment"
+        android:name="com.example.showseek.layout.Fragments.InicioFragment"
         android:label="fragment_inicio"
-        tools:layout="@layout/fragment_inicio" >
-        <action
-            android:id="@+id/action_inicioFragment_to_pantalla1Fragment"
-            app:destination="@id/pantalla1Fragment" />
-        <action
-            android:id="@+id/action_inicioFragment_to_pantalla2Fragment"
-            app:destination="@id/pantalla2Fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/pantalla1Fragment"
-        android:name="com.example.showseek.Pantalla1Fragment"
-        android:label="fragment_pantalla1"
-        tools:layout="@layout/fragment_pantalla1" />
-    <fragment
-        android:id="@+id/pantalla2Fragment"
-        android:name="com.example.showseek.Pantalla2Fragment"
-        android:label="fragment_pantalla2"
-        tools:layout="@layout/fragment_pantalla2" />
+        tools:layout="@layout/fragment_inicio" />
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#9C27B0"
+        android:src="@drawable/ic_baseline_search_24" />
 </navigation>

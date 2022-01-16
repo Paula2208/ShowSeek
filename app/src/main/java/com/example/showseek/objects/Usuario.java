@@ -25,6 +25,16 @@ public class Usuario {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
+    public Usuario(){
+        this.ID = 0;
+        this.nombre = "";
+        this.apellido = "";
+        this.correo = "";
+        this.telefono = "";
+        this.ciudad = "";
+        this.fecha_nacimiento = "";
+    }
+
     //Getters and Setters
     public int getID() {
         return ID;

@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_inicio.xml" value="0.13" />
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_pantalla1.xml" value="0.10643115942028986" />
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_pantalla2.xml" value="0.10643115942028986" />
-        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
-        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.11639492753623189" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_inicio.xml" value="0.1" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_blank.xml" value="0.24322916666666666" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_buscar.xml" value="0.17527173913043478" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_inicio.xml" value="0.264" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_inicio_cliente.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_pantalla2.xml" value="0.24322916666666666" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_perfil.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17592592592592593" />
       </map>
     </option>
