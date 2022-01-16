@@ -1,6 +1,7 @@
 package com.example.showseek.layout;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,15 +9,21 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.*;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.showseek.ProfileActivity;
 import com.example.showseek.R;
 import com.example.showseek.RegisterUser;
 import com.example.showseek.estructures.references.single.*;
 import com.example.showseek.objects.*;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseError;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
     private EditText editTextEmail, editTextPassword;
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Acciones al clickar -------------------------------------------------------------------------------------
 
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.register:
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
@@ -69,31 +77,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             editTextEmail.setError("El email es necesario");
             editTextEmail.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Introduzca un email valido");
             editTextEmail.requestFocus();
             return;
         }
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             editTextPassword.setError("La contraseña es necesaria");
             editTextPassword.requestFocus();
             return;
         }
-        if(password.length() < 6){
+        if (password.length() < 6) {
             editTextPassword.setError("La contraseña minima es de 7 caracteres");
             editTextPassword.requestFocus();
             return;
         }
 
+        progressBar.setVisibility(View.VISIBLE);
 
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+                    //redirecciona al perfil de usuario----------------------------------------------------------------
+                    startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+
+                } else {
+                    //Toast.makeText( context: MainActivity.this, text: "Error al conectar por favor revisar sus datos", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
     }
+
 
     /*
     //Atributes
@@ -246,7 +269,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }*/
-
 }
-
-
