@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.showseek.R;
-import com.example.showseek.estructures.array.ListArray;
 import com.example.showseek.estructures.nonLineal.ColaPrioridad;
 import com.example.showseek.objects.Artista;
 import com.example.showseek.otros.artistasAdaptador;
@@ -88,13 +88,34 @@ public class BuscarFragment extends Fragment {
         recyclerArtistas = view.findViewById(R.id.recyclerArtistas);
         recyclerArtistas.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ColaPrioridad<Artista> queue = llenadoCola();
+        long inicio = System.nanoTime();
 
+        ColaPrioridad<Artista> queue = llenadoCola();
         int size = queue.getSize();
 
         adapter = new artistasAdaptador(queue, getContext(), size);
         recyclerArtistas.setAdapter(adapter);
 
+        long fin = System.nanoTime();
+
+        long tiempofinal = fin - inicio;
+
+        String prueba = "--------------------------------------------------------------";
+        String rating = Long.toString(tiempofinal);
+        Log.d("Tiempo de Ejecución: ",prueba);
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("Tiempo final ",rating);
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","");
+        Log.d("","----------------------------------------------------------------");
 
     }
 
@@ -108,7 +129,6 @@ public class BuscarFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 queue.clean();
                 int contador = 0;
-                String prueba ="Se insertó el item con nombre artístico :";
                 if(snapshot.exists()){
                     for(DataSnapshot snap : snapshot.getChildren()){
                         Artista ar = snap.getValue(Artista.class);
