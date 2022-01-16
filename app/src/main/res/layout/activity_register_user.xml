@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D8E0DFE1"
-    android:backgroundTint="#DAD5DD"
-    tools:context=".RegisterUser">
+    tools:context=".layout.RegisterUser">
 
     <TextView
         android:id="@+id/banner"

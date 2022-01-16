@@ -5,15 +5,33 @@ public class Artista extends Usuario implements Comparable<Artista>{
     //Atributes
     private String tipoAgrupacion;
     private String generoMusical;
-    private int totalRecomendacion=0;
+    private String nombreArtistico;
+    private String fotoPerfil;
+    private int rating;
 
     //Constructor
     public Artista(int ID, String nombre, String apellido, String correo,
                    String telefono, String ciudad, String fecha_nacimiento,
-                   String tipoAgrupacion, String generoMusical) {
-        super(ID, nombre, apellido, correo, telefono, ciudad, fecha_nacimiento);
+                   String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil) {
+        super(ID, nombre, correo, fecha_nacimiento);
         this.tipoAgrupacion = tipoAgrupacion;
         this.generoMusical = generoMusical;
+        this.nombreArtistico = nombreArtistico;
+        this.fotoPerfil = fotoPerfil;
+        this.rating = 0;
+    }
+
+    public Artista(String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil, int rating){
+        super();
+        this.tipoAgrupacion = tipoAgrupacion;
+        this.generoMusical = generoMusical;
+        this.nombreArtistico = nombreArtistico;
+        this.fotoPerfil = fotoPerfil;
+        this.rating = rating;
+    }
+
+    public Artista(){
+
     }
 
     //Getters and Setters
@@ -31,6 +49,30 @@ public class Artista extends Usuario implements Comparable<Artista>{
 
     public void setGeneroMusical(String generoMusical) {
         this.generoMusical = generoMusical;
+    }
+
+    public String getNombreArtistico() {
+        return nombreArtistico;
+    }
+
+    public void setNombreArtistico(String nombreArtistico) {
+        this.nombreArtistico = nombreArtistico;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     //Methods
