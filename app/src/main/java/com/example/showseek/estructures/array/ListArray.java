@@ -1,9 +1,11 @@
 package com.example.showseek.estructures.array;
 
+import android.util.Log;
+
 public class ListArray<T extends Comparable<T>>{
 
     private int size;
-    private int capacity = 1000;
+    private int capacity = 100000;
     private T larray[];
 
     //Constructors
@@ -19,12 +21,12 @@ public class ListArray<T extends Comparable<T>>{
     }
 
     //Methods
-        //Is the LinkedList empty?
-    private boolean empty () {
+        //Is the List empty?
+    public boolean empty () {
         return size <= 0;
     }
 
-    private boolean full () {
+    public boolean full () {
         return size >= capacity;
     }
 
@@ -117,6 +119,10 @@ public class ListArray<T extends Comparable<T>>{
 
     public T topBack(){
         return larray[size-1];
+    }
+
+    public T get(int index){
+        return larray[index];
     }
 
     public boolean find(T item){
@@ -229,4 +235,30 @@ public class ListArray<T extends Comparable<T>>{
         capacity = a;
         return bigger;
     }
+
+    public void swap(int i, int parent) {
+        T datai = larray[i];
+        T datap = larray[parent];
+
+        larray[parent] = datai;
+        larray[i] = datap;
+
+    }
+
+    public void set(int index, T e){
+        String prueba = "";
+        if(index > size || index<0){
+            prueba = "Set failed ,index is overflow";
+            Log.d("Salida: ",prueba);
+        }
+        else{
+            larray[index] = e;
+        }
+    }
+
+    public void clear(){
+        T[] nuevo = (T[]) new Comparable[capacity];
+        larray = nuevo;
+    }
+
 }
