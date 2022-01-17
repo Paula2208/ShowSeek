@@ -7,7 +7,7 @@ public class Artista extends Usuario implements Comparable<Artista>{
     private String generoMusical;
     private String nombreArtistico;
     private String fotoPerfil;
-    private int rating;
+    private float rating;
 
     //Constructor
     public Artista(int ID, String nombre, String apellido, String correo,
@@ -18,10 +18,10 @@ public class Artista extends Usuario implements Comparable<Artista>{
         this.generoMusical = generoMusical;
         this.nombreArtistico = nombreArtistico;
         this.fotoPerfil = fotoPerfil;
-        this.rating = 0;
+        this.rating = 0 ;
     }
 
-    public Artista(String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil, int rating){
+    public Artista(String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil, float rating){
         super();
         this.tipoAgrupacion = tipoAgrupacion;
         this.generoMusical = generoMusical;
@@ -67,7 +67,7 @@ public class Artista extends Usuario implements Comparable<Artista>{
         this.fotoPerfil = fotoPerfil;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
@@ -79,10 +79,10 @@ public class Artista extends Usuario implements Comparable<Artista>{
     @Override
     public int compareTo(Artista o) {
         int comparation = 0;
-        if(super.getID()>o.getID()){
+        if(rating>o.getRating()){
             comparation = 1;
         }
-        else if(super.getID()<o.getID()){
+        else if(rating<o.getRating()){
             comparation = -1;
         }
         else{
