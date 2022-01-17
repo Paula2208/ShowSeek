@@ -5,6 +5,7 @@ public class DoubleNode<T extends Comparable<T>> extends Node<T> {
     //Atributes
     private DoubleNode<T> back;
     private DoubleNode<T> next;
+    public int height;
 
     //Constructors
     public DoubleNode(T data){

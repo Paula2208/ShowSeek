@@ -88,34 +88,11 @@ public class BuscarFragment extends Fragment {
         recyclerArtistas = view.findViewById(R.id.recyclerArtistas);
         recyclerArtistas.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        long inicio = System.nanoTime();
-
         ColaPrioridad<Artista> queue = llenadoCola();
         int size = queue.getSize();
 
         adapter = new artistasAdaptador(queue, getContext(), size);
         recyclerArtistas.setAdapter(adapter);
-
-        long fin = System.nanoTime();
-
-        long tiempofinal = fin - inicio;
-
-        String prueba = "--------------------------------------------------------------";
-        String rating = Long.toString(tiempofinal);
-        Log.d("Tiempo de Ejecución: ",prueba);
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("Tiempo final ",rating);
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","");
-        Log.d("","----------------------------------------------------------------");
 
     }
 
@@ -130,14 +107,35 @@ public class BuscarFragment extends Fragment {
                 queue.clean();
                 int contador = 0;
                 if(snapshot.exists()){
+                    long inicio = System.nanoTime();
                     for(DataSnapshot snap : snapshot.getChildren()){
                         Artista ar = snap.getValue(Artista.class);
                         queue.enqueue(ar);
                         contador++;
-                        if(contador == 1000){
+                        if(contador == 30){
                             break;
                         }
                     }
+                    long fin = System.nanoTime();
+                    long tiempofinal = fin - inicio;
+
+                    String prueba = "--------------------------------------------------------------";
+                    String rating = Long.toString(tiempofinal);
+                    Log.d("Tiempo de Ejecución: ",prueba);
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("Tiempo final ",rating);
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","");
+                    Log.d("","----------------------------------------------------------------");
+
                 }
 
                 adapter.notifyDataSetChanged();
