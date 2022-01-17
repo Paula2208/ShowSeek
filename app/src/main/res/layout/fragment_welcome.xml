@@ -12,13 +12,15 @@
         android:layout_width="423dp"
         android:layout_height="284dp"
         android:background="#FFFFFF"
-        android:text="Hola nombreUsuario (debe cargarse de la base de datos."
+        android:text="¡Hola nombreUsuario! (debe cargarse de la base de datos.)"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#9C27B0"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
