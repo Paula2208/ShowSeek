@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,6 +54,7 @@ public class InicioActivity extends AppCompatActivity {
             case R.id.account:
                 nav.replace(R.id.contenedor_inicio,perfil);
                 nav.addToBackStack(null);
+                startActivity(new Intent(InicioActivity.this, UploadImage.class));
                 prueba = "Se entra a perfil";
                 Log.d("Fragment al que entra: ",prueba);
                 break;

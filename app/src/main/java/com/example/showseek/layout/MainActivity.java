@@ -1,4 +1,4 @@
-package com.example.showseek;
+package com.example.showseek.layout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 } else {
                     Toast.makeText(MainActivity.this, "Error al conectar por favor revisar sus datos", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
