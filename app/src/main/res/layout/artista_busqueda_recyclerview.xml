@@ -33,13 +33,13 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Nombre artista"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#673AB7" />
+                android:textColor="#9C27B0" />
 
             <TextView
                 android:id="@+id/tipoAgrupacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="tipo de agrupacion"
+                android:text="Tipo de agrupación"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#9C27B0" />
 
@@ -47,7 +47,7 @@
                 android:id="@+id/generoMusical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="genero musical"
+                android:text="Género musical"
                 android:textColor="#000000" />
 
             <RatingBar

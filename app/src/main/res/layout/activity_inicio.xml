@@ -22,6 +22,7 @@
             android:minHeight="48dp"
             android:onClick="onClick"
             android:src="@drawable/ic_baseline_search_24"
+            app:cornerRadius="20dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
@@ -30,8 +31,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="#9C27B0"
+            android:cropToPadding="false"
             android:onClick="onClick"
             android:src="@drawable/ic_baseline_insert_drive_file_24"
+            app:cornerRadius="20dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
@@ -42,6 +45,7 @@
             android:backgroundTint="#9C27B0"
             android:onClick="onClick"
             android:src="@drawable/ic_baseline_person_24"
+            app:cornerRadius="20dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
