@@ -112,7 +112,7 @@ public class BuscarFragment extends Fragment {
                         Artista ar = snap.getValue(Artista.class);
                         queue.enqueue(ar);
                         contador++;
-                        if(contador == 30){
+                        if(contador == 15){
                             break;
                         }
                     }

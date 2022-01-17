@@ -118,7 +118,7 @@ public class Contrato implements Comparable<Contrato>{
         return factura;
     }
 
-    //Sort by the ID_cliente
+    //Sort by the Fecha
     @Override
     public int compareTo(Contrato o) {
         int comparation = 0;

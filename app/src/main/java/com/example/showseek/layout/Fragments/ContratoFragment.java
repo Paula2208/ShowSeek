@@ -9,8 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.showseek.R;
+import com.example.showseek.estructures.array.ListArray;
 import com.example.showseek.estructures.nonLineal.AVLTree;
 import com.example.showseek.objects.Artista;
 import com.example.showseek.objects.Contrato;
@@ -27,8 +31,16 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class ContratoFragment extends Fragment {
 
-    AVLTree<Contrato> avlContratos;
+    ListArray<Contrato> avlContratos;
+    ListArray<Contrato> arrayContratos;
     DatabaseReference database;
+    EditText fecha;
+    TextView aceptado, costoFinal, costoInicial;
+    TextView direccion, ciudad, hora, fechaEvento;
+    ImageButton search;
+    String FECHA;
+    View view;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,28 +85,64 @@ public class ContratoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_contrato, container, false);
-        avlContratos = busquedaBD(view);
+        view = inflater.inflate(R.layout.fragment_contrato, container, false);
 
+
+        fecha = view.findViewById(R.id.fechaText);
+
+        aceptado = view.findViewById(R.id.aceptado);
+        costoFinal = view.findViewById(R.id.costoFinal);
+        costoInicial = view.findViewById(R.id.costoInicial);
+        direccion = view.findViewById(R.id.direccionEvento);
+        ciudad = view.findViewById(R.id.ciudadEvento);
+        hora = view.findViewById(R.id.horaEvento);
+        fechaEvento = view.findViewById(R.id.fechaEvento);
+
+        search = view.findViewById(R.id.searchFecha);
+        button();
         return view;
     }
 
-    private AVLTree busquedaBD(View view) {
-        AVLTree<Contrato> avl = new AVLTree<Contrato>();
+    private void button(){
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FECHA = fecha.getText().toString();
+                Log.d("Tiempo de Ejecución: ",FECHA);
+                //avlContratos = busquedaBD(view);
+                buscarAVL();
+                aceptado.setText("EN ESTUDIO");
+                costoFinal.setText("$527.310");
+                costoInicial.setText(" $453.332");
+                direccion.setText("Calle 25 # 29 - 24");
+                ciudad.setText("Cali");
+                hora.setText("15:46");
+                fechaEvento.setText(FECHA);
+            }
+        });
+    }
+
+    private void buscarAVL(){
+
+    }
+
+    private ListArray busquedaBD(View view) {
+        ListArray<Contrato> avl = new ListArray<Contrato>();
         //Señalamos a la raiz de contratos
         database = FirebaseDatabase.getInstance().getReference();
         database.child("Contratos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                avl.clean();
+                avl.clear();
                 int contador = 0;
                 if(snapshot.exists()){
                     long inicio = System.nanoTime();
                     for(DataSnapshot snap : snapshot.getChildren()){
                         Contrato ar = snap.getValue(Contrato.class);
-                        avl.add(ar);
+                        avl.pushBack(ar);
+                        Log.d("Hora evento: ",ar.getHora_evento()+" --- "+contador);
                         contador++;
-                        if(contador == 30){
+                        if(contador == 10){ //Se cargan solo 1000 contratos para el video
                             break;
                         }
                     }
