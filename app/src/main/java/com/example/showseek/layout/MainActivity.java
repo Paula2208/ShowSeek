@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editTextPassword.requestFocus();
             return;
         } else if (password.length() < 6) {
-            editTextPassword.setError("La contraseña minima es de 7 caracteres");
+            editTextPassword.setError("La contraseña mínima es de 7 caracteres");
             editTextPassword.requestFocus();
             return;
         }
@@ -88,8 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
-                    //redirecciona al perfil de usuario----------------------------------------------------------------
-                    startActivity(new Intent(MainActivity.this, InicioActivity.class));
+                    //redirecciona a WelcomeFragment----------------------------------------------------------------
+                    //startActivity(new Intent(MainActivity.this, InicioActivity.class));
+
+                    //Borrar 94 - 95 y habilitar el otro startActivity para poner a funcionar la app
+                    startActivity(new Intent(MainActivity.this, PruebasEstructuras.class));
 
                 } else {
                     Toast.makeText(MainActivity.this, "Error al conectar por favor revisar sus datos", Toast.LENGTH_LONG).show();

@@ -3,9 +3,9 @@ package com.example.showseek.estructures.references.nodes;
 public class DoubleNode<T extends Comparable<T>> extends Node<T> {
 
     //Atributes
-    private DoubleNode<T> back;
-    private DoubleNode<T> next;
-    public int height;
+    private DoubleNode<T> back; //Nodo de la izquierda
+    private DoubleNode<T> next; //Nodo de la derecha
+    private int height = 0;          //Altura del nodo
 
     //Constructors
     public DoubleNode(T data){
@@ -18,6 +18,12 @@ public class DoubleNode<T extends Comparable<T>> extends Node<T> {
         super.setData(null);
         back = null;
         next = null;
+    }
+
+    public DoubleNode(T data, DoubleNode<T> izquierda, DoubleNode<T> derecha){
+        super.setData(null);
+        back = izquierda;
+        next = derecha;
     }
 
     //Methods
@@ -36,5 +42,14 @@ public class DoubleNode<T extends Comparable<T>> extends Node<T> {
     public void setNext(DoubleNode<T> next){
         this.next = next;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
 
 }

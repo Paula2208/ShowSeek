@@ -1,19 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".layout.Fragments.ContratoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="387dp"
-        android:layout_height="485dp"
-        android:text="Aqui es donde se va a implementar la vizualisación de contratos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Selecciona la fecha de evento que deseas buscar "
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#9C27B0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/fechaText"
+            android:layout_width="236dp"
+            android:layout_height="68dp"
+            android:ems="10"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:text="Fecha Evento" />
+
+        <ImageButton
+            android:id="@+id/searchFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_lupa"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="411dp"
+        android:background="#9A9C27B0"
+        android:backgroundTint="#989C27B0"
+        android:backgroundTintMode="screen"
+        app:cardBackgroundColor="#989C27B0"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aceptado"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="ACEPTADO" />
+
+            <TextView
+                android:id="@+id/costoFinal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Costo Final del Evento" />
+
+            <TextView
+                android:id="@+id/costoInicial"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Costo Inicial del Evento" />
+
+            <TextView
+                android:id="@+id/direccionEvento"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Dirección del Evento" />
+
+            <TextView
+                android:id="@+id/ciudadEvento"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Ciudad del Evento" />
+
+            <TextView
+                android:id="@+id/horaEvento"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Hora del Evento" />
+
+            <TextView
+                android:id="@+id/fechaEvento"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Fecha del Evento" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

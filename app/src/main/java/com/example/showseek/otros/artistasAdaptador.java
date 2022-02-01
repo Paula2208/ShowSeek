@@ -19,7 +19,7 @@ import com.example.showseek.objects.Artista;
 
 public class artistasAdaptador extends RecyclerView.Adapter<artistasAdaptador.ViewHolder>{
 
-    //Se debe habilitar la puesta de imagenes en la linea 65
+    //Se debe habilitar la puesta de imagenes en la linea 70
     // cuando sea parametrizada el uri la imagen en firebase
     //luego de ponerla en el storage
 
@@ -67,7 +67,7 @@ public class artistasAdaptador extends RecyclerView.Adapter<artistasAdaptador.Vi
         holder.tipo.setText(ar.getTipoAgrupacion());
         holder.genero.setText(ar.getGeneroMusical());
         holder.rating.setRating(ar.getRating());
-        //Glide.with(context).load(ar.getFotoPerfil().centerCrop().into(holder.foto);
+        //Glide.with(context).load(ar.getFotoPerfil()).centerCrop().into(holder.foto);
         String prueba = ar.getNombreArtistico();
         String rating = Float.toString(ar.getRating());
         Log.d("Nombre Artístico: ",prueba);
