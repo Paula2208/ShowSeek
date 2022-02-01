@@ -101,7 +101,7 @@ public class BuscarFragment extends Fragment {
 
         //Señalamos a la raiz de artistas
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("Artistas").addValueEventListener(new ValueEventListener() {
+        database.child("Artistas").orderByKey().limitToFirst(100).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 queue.clean();
@@ -112,10 +112,10 @@ public class BuscarFragment extends Fragment {
                         Artista ar = snap.getValue(Artista.class);
                         queue.enqueue(ar);
                         contador++;
-                        if(contador == 15){
-                            break;
-                        }
+
                     }
+                    String s = String.valueOf(contador);
+                    Log.d("Contador: ",s);
                     long fin = System.nanoTime();
                     long tiempofinal = fin - inicio;
 

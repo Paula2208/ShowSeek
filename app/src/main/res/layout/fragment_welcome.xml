@@ -12,7 +12,7 @@
         android:layout_width="423dp"
         android:layout_height="284dp"
         android:background="#FFFFFF"
-        android:text="¡Hola nombreUsuario! (debe cargarse de la base de datos.)"
+        android:text="¡Hola Camila!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#9C27B0"

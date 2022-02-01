@@ -100,6 +100,7 @@ public class ContratoFragment extends Fragment {
 
         search = view.findViewById(R.id.searchFecha);
         button();
+        busquedaBD(view);
         return view;
     }
 
@@ -130,7 +131,7 @@ public class ContratoFragment extends Fragment {
         ListArray<Contrato> avl = new ListArray<Contrato>();
         //Señalamos a la raiz de contratos
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("Contratos").addValueEventListener(new ValueEventListener() {
+        database.child("Contratos").orderByKey().limitToFirst(100).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 avl.clear();
@@ -140,7 +141,7 @@ public class ContratoFragment extends Fragment {
                     for(DataSnapshot snap : snapshot.getChildren()){
                         Contrato ar = snap.getValue(Contrato.class);
                         avl.pushBack(ar);
-                        Log.d("Hora evento: ",ar.getHora_evento()+" --- "+contador);
+
                         contador++;
                         if(contador == 10){ //Se cargan solo 1000 contratos para el video
                             break;

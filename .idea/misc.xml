@@ -11,7 +11,8 @@
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_welcome.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Gabriel/AndroidStudioProjects/ShowSeek/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_inicio.xml" value="0.2" />
-        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_pruebas_estructuras.xml" value="0.2" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_register_user.xml" value="0.264" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/artista_busqueda_recyclerview.xml" value="0.536" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_blank.xml" value="0.24322916666666666" />
@@ -22,7 +23,6 @@
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_pantalla2.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_perfil.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_welcome.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17592592592592593" />
       </map>
     </option>

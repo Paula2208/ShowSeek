@@ -3,6 +3,7 @@ package com.example.showseek.objects;
 public class Contrato implements Comparable<Contrato>{
 
     //Atributes
+    private int ID;
     private int ID_artista;
     private int ID_cliente;
     private boolean aceptado;
@@ -15,10 +16,11 @@ public class Contrato implements Comparable<Contrato>{
     private String direccion_evento;
 
     //Constructor
-    public Contrato(int ID_artista, int ID_cliente, boolean aceptado,
+    public Contrato(int ID,int ID_artista, int ID_cliente, boolean aceptado,
                     String fecha_evento, String hora_evento, int costo_final,
                     int costo_oferta, String ciudad_evento, int ID_repertorio,
                     String direccion_evento) {
+        this.ID = ID;
         this.ID_artista = ID_artista;
         this.ID_cliente = ID_cliente;
         this.aceptado = aceptado;

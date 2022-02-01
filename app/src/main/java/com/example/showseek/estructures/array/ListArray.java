@@ -21,7 +21,7 @@ public class ListArray<T extends Comparable<T>>{
     }
 
     //Methods
-        //Is the List empty?
+    //Is the List empty?
     public boolean empty () {
         return size <= 0;
     }
@@ -37,14 +37,14 @@ public class ListArray<T extends Comparable<T>>{
             for(int i=size-1; i>=0; i--){
                 larray[i+1] = larray[i];
             }
-            larray[0]= item;
+            larray[0] = item;
             size++;
         }
         else{
             for(int i=size-1; i>=0; i--){
                 larray[i+1] = larray[i];
             }
-            larray[0]= item;
+            larray[0] = item;
             size++;
         }
     }
@@ -52,8 +52,10 @@ public class ListArray<T extends Comparable<T>>{
     public void pushBack(T item){
         if(size+1 > capacity){
             larray = increase();
+
             larray[size] = item;
             size++;
+
         }
         else{
             larray[size] = item;
@@ -104,10 +106,15 @@ public class ListArray<T extends Comparable<T>>{
 
     public T pop(int index){
         T s = larray[index];
-        for(int i=index; i>size; i++){
-            larray[i]=larray[i+1];
+        try{
+            for(int i=index; i<size; i++){
+                larray[i]=larray[i+1];
+            }
         }
-        larray[size-1]=null;
+        catch(Exception e){
+            Log.d("Error","Index out of bound Array");
+        }
+
         size--;
         return s;
     }
@@ -128,7 +135,7 @@ public class ListArray<T extends Comparable<T>>{
     public boolean find(T item){
         boolean n = false;
         for(int i=0; i<size; i++){
-            if(larray[i]== item){
+            if(larray[i].compareTo(item)== 0){
                 n = true;
                 break;
             }
@@ -144,7 +151,7 @@ public class ListArray<T extends Comparable<T>>{
     public int searchIndex(T item){
         int n = -1;
         for(int i=0; i<size; i++){
-            if(larray[i]== item){
+            if(larray[i].compareTo(item)== 0){
                 n = i;
                 break;
             }
@@ -156,7 +163,7 @@ public class ListArray<T extends Comparable<T>>{
     public int searchIndex(T item, int index){
         int n = -1;
         for(int i=index; i<size; i++){
-            if(larray[i]== item){
+            if(larray[i].compareTo(item)== 0){
                 n = i;
                 break;
             }
@@ -247,13 +254,15 @@ public class ListArray<T extends Comparable<T>>{
 
     public void set(int index, T e){
         String prueba = "";
-        if(index > size || index<0){
+       /* if(index > size || index<0){
             prueba = "Set failed ,index is overflow";
-            Log.d("Salida: ",prueba);
+            System.out.println(prueba);
         }
         else{
             larray[index] = e;
-        }
+        }*/
+
+        larray[index] = e;
     }
 
     public void clear(){
