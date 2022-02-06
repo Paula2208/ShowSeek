@@ -11,16 +11,21 @@ public class Cliente extends Usuario implements Comparable<Cliente>{
 
     //Atributes
     private String[] pref_Musical;
+    private String tipo ;
 
     //Constructor
     public Cliente(int ID_cliente, String nombre_Cliente, String apellido_Cliente,
                    String correo_Cliente, String telefono_Cliente, String ciudad_Cliente,
                    String fecha_Nacimiento_Cliente, String pref1, String pref2) {
-        super(ID_cliente, nombre_Cliente,correo_Cliente,fecha_Nacimiento_Cliente);
+        super(ID_cliente, nombre_Cliente,correo_Cliente,fecha_Nacimiento_Cliente,"cliente");
         String[] pref_Musical = new String[2];
         pref_Musical[0] = pref1;
         pref_Musical[1] = pref2;
         this.pref_Musical = pref_Musical;
+    }
+
+    public Cliente(String fullname, String age, String correo){
+        super(0, fullname,correo,age,"cliente");
     }
 
     //Getters and Setters

@@ -21,7 +21,7 @@
             android:backgroundTint="#9C27B0"
             android:minHeight="48dp"
             android:onClick="onClick"
-            android:src="@drawable/ic_baseline_search_24"
+            android:src="@drawable/ic_baseline_search_lupa"
             app:cornerRadius="20dp"
             tools:ignore="SpeakableTextPresentCheck" />
 

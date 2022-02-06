@@ -2,6 +2,7 @@ package com.example.showseek.layout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.*;
@@ -10,10 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.showseek.R;
+import com.example.showseek.estructures.array.ListArray;
+import com.example.showseek.objects.Artista;
+import com.example.showseek.objects.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -23,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button singIn;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
+    private String email;
+    private String nombre;
+    private DatabaseReference database;
+    private Intent inicio;
 
     //Se infla la actividad con el xml activity_main y se instancian los botones
     @Override
@@ -58,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void userLogin() {
-        String email = editTextEmail.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if (email.isEmpty()) {
@@ -89,10 +102,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (task.isSuccessful()) {
                     //redirecciona a WelcomeFragment----------------------------------------------------------------
-                    //startActivity(new Intent(MainActivity.this, InicioActivity.class));
 
-                    //Borrar 94 - 95 y habilitar el otro startActivity para poner a funcionar la app
-                    startActivity(new Intent(MainActivity.this, PruebasEstructuras.class));
+                    database = FirebaseDatabase.getInstance().getReference();
+                    database.child("Users").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            if(snapshot.exists()){
+                                for(DataSnapshot snap : snapshot.getChildren()){
+                                    Usuario ar = snap.getValue(Usuario.class);
+
+                                    if(email.compareTo(ar.getCorreo()) == 0){
+                                        inicio = new Intent(MainActivity.this, InicioActivity.class);
+                                        nombre = ar.getNombre();
+                                        Log.d("name",nombre);
+                                        if(nombre == null){
+                                            nombre = "No se encontró el usuario :c";
+                                            inicio.putExtra("nombre",nombre);
+                                        }
+                                        else{
+                                            inicio.putExtra("nombre",nombre);
+                                        }
+                                        inicio.putExtra("tipo",ar.getTipo());
+                                        startActivity(inicio);
+                                        break;
+                                    }
+
+
+                                }
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+
+
 
                 } else {
                     Toast.makeText(MainActivity.this, "Error al conectar por favor revisar sus datos", Toast.LENGTH_LONG).show();

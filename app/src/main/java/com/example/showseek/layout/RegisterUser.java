@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.showseek.R;
 import com.example.showseek.layout.MainActivity;
+import com.example.showseek.objects.Artista;
+import com.example.showseek.objects.Cliente;
 import com.example.showseek.objects.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +31,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     private EditText editTextFullName, editTextAge, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private CheckBox checkArtista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
 
+        checkArtista = findViewById(R.id.checkArtista);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBarRegister);
     }
@@ -117,28 +123,55 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-                            Usuario user = new Usuario(fullName, age, email);
 
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
+                            if(checkArtista.isChecked()){
+                                Artista user = new Artista(fullName, age, email);
 
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(RegisterUser.this,"El usuario ha sido registrado exitosamente",Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
 
-                                        // redirigir al login (falta)
-                                    }else{
-                                        Toast.makeText(RegisterUser.this, "Registro fallido, vuelva a intentar",Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(RegisterUser.this,"El usuario ha sido registrado exitosamente",Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
+                                            startActivity(new Intent(RegisterUser.this, MainActivity.class));
+
+                                        }else{
+                                            Toast.makeText(RegisterUser.this, "Registro de Artista fallido, vuelva a intentar",Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
+                                        }
+
                                     }
+                                });
+                            }
+                            else{
+                                Cliente user = new Cliente(fullName, age, email);
 
-                                }
-                            });
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(RegisterUser.this,"El usuario ha sido registrado exitosamente",Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
+                                            startActivity(new Intent(RegisterUser.this, MainActivity.class));
+
+                                        }else{
+                                            Toast.makeText(RegisterUser.this, "Registro de Cliente fallido, vuelva a intentar",Toast.LENGTH_LONG).show();
+                                            progressBar.setVisibility(View.GONE);
+                                        }
+
+                                    }
+                                });
+                            }
+
+
                         }else {
-                            Toast.makeText(RegisterUser.this, "Registro fallido, vuelva a intentar",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterUser.this, "Registro de usuario fallido, vuelva a intentar",Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

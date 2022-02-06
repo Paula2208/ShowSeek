@@ -25,7 +25,19 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
+        Bundle datos = getIntent().getExtras();
+
+        String nombre = datos.getString("nombre");
+        String tipo = datos.getString("tipo");
+
+        Bundle args = new Bundle();
+
+        // Colocamos el String
+        args.putString("nombre", nombre);
+        args.putString("tipo", tipo);
+
         welcome = new WelcomeFragment();
+        welcome.setArguments(args);
         buscar = new BuscarFragment();
         contrato = new ContratoFragment();
         perfil = new PerfilFragment();
