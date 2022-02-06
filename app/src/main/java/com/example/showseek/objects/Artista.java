@@ -9,11 +9,13 @@ public class Artista extends Usuario implements Comparable<Artista>{
     private String fotoPerfil;
     private float rating;
 
+    private String tipo ;
+
     //Constructor
     public Artista(int ID, String nombre, String apellido, String correo,
                    String telefono, String ciudad, String fecha_nacimiento,
                    String tipoAgrupacion, String generoMusical, String nombreArtistico, String fotoPerfil) {
-        super(ID, nombre, correo, fecha_nacimiento);
+        super(ID, nombre, correo, fecha_nacimiento,"artista");
         this.tipoAgrupacion = tipoAgrupacion;
         this.generoMusical = generoMusical;
         this.nombreArtistico = nombreArtistico;
@@ -32,6 +34,10 @@ public class Artista extends Usuario implements Comparable<Artista>{
 
     public Artista(){
 
+    }
+
+    public Artista(String fullname, String age, String correo){
+        super(0, fullname,correo,age,"artista" );
     }
 
     //Getters and Setters

@@ -6,13 +6,15 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String fecha_nacimiento;
+    private String tipo ;
 
     //Constructor
-    public Usuario(int ID, String nombre, String correo, String fecha_nacimiento) {
+    public Usuario(int ID, String nombre, String correo, String fecha_nacimiento, String tipo) {
         this.ID = ID;
         this.nombre = nombre;
         this.correo = correo;
         this.fecha_nacimiento = fecha_nacimiento;
+        this.tipo = tipo;
     }
 
     public Usuario(){
@@ -24,6 +26,14 @@ public class Usuario {
 
     public Usuario(String fullname, String age, String correo){
         this.ID = 0;
+        this.nombre=fullname;
+        this.fecha_nacimiento = age;
+        this.correo = correo;
+
+    }
+
+    public Usuario(int ID,String fullname, String age, String correo){
+        this.ID = ID;
         this.nombre=fullname;
         this.fecha_nacimiento = age;
         this.correo = correo;
@@ -60,5 +70,13 @@ public class Usuario {
 
     public void setFecha_nacimiento(String fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

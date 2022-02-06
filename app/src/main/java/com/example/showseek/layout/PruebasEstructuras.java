@@ -45,6 +45,8 @@ public class PruebasEstructuras extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pruebas_estructuras);
 
+        colabora = new ListArray<Artista>();
+
         creacion();
 
         cargarDatos();
