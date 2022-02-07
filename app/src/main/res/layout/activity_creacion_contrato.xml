@@ -33,7 +33,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Estado del contrato"
-                android:inputType="text" />
+                android:inputType="text"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextCostoFinal"
@@ -42,7 +43,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Costo final del evento"
-                android:inputType="number" />
+                android:inputType="number"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextCostoInicial"
@@ -51,7 +53,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Costo inicial del evento"
-                android:inputType="number" />
+                android:inputType="number"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextDireccion"
@@ -69,7 +72,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Ciudad del evento"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextHora"
@@ -78,7 +82,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Hora del evento"
-                android:inputType="text" />
+                android:inputType="text"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextFecha"
@@ -87,7 +92,8 @@
                 android:ems="10"
                 android:fontFamily="sans-serif-medium"
                 android:hint="Fecha del evento"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
