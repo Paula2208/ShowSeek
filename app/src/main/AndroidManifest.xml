@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShowSeek">
         <activity
+            android:name=".layout.FirmaElectronica"
+            android:exported="false" />
+        <activity
             android:name=".layout.PruebasEstructuras"
             android:exported="false" />
         <activity
@@ -20,11 +23,9 @@
         <activity
             android:name=".layout.InicioActivity"
             android:exported="true" />
-
         <activity
             android:name=".layout.DetailArtista"
             android:exported="true" />
-
         <activity
             android:name=".layout.MainActivity"
             android:exported="true">

@@ -36,6 +36,12 @@ public class HashS {
         set.pushBack(nuevo);
     }
 
+    //Add without hash
+    public void add(int pass) {
+        // Añadir al lista el codigo hash
+        set.pushBack(pass);
+    }
+
     //Funcion Hash
     public int hashFun(String password) {
         int sum = 0;

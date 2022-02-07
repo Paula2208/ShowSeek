@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     if(email.compareTo(ar.getCorreo()) == 0){
                                         inicio = new Intent(MainActivity.this, InicioActivity.class);
                                         nombre = ar.getNombre();
+                                        String key = snap.getKey();
                                         Log.d("name",nombre);
                                         if(nombre == null){
                                             nombre = "No se encontró el usuario :c";
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         else{
                                             inicio.putExtra("nombre",nombre);
                                         }
+                                        inicio.putExtra("clave",key);
                                         inicio.putExtra("tipo",ar.getTipo());
                                         startActivity(inicio);
                                         break;

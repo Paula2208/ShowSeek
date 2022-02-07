@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".layout.FirmaElectronica">
+
+    <ProgressBar
+        android:id="@+id/progressBarF"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"
+        android:indeterminateTint="#9C27B0"
+        android:max="100"
+        android:minHeight="24dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="237dp"
+        android:layout_height="142dp"
+        app:srcCompat="@drawable/ic_baseline_draw_24" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Firma Electrónica"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#673AB7"
+        android:textSize="40sp"
+        android:translationY="10dp" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Crea tu firma electrónica única y segura para darle validez a tus contratos"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:translationY="20dp" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="346dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Ingresa tu nueva contraseña de Firma"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:translationY="10dp" />
+
+    <Button
+        android:id="@+id/btnCrearFirma"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#673AB7"
+        android:clickable="true"
+        android:text="Obtener Firma Electrónica"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:translationY="30dp" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="¡No compartas tu contraseña a nadie!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:translationY="50dp" />
+</LinearLayout>

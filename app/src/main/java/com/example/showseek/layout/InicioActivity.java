@@ -29,12 +29,14 @@ public class InicioActivity extends AppCompatActivity {
 
         String nombre = datos.getString("nombre");
         String tipo = datos.getString("tipo");
+        String key = datos.getString("clave");
 
         Bundle args = new Bundle();
 
         // Colocamos el String
         args.putString("nombre", nombre);
         args.putString("tipo", tipo);
+        args.putString("clave", key);
 
         welcome = new WelcomeFragment();
         welcome.setArguments(args);
