@@ -8,17 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.RemoteViews;
 
 import com.example.showseek.R;
 import com.example.showseek.layout.Fragments.BuscarFragment;
 import com.example.showseek.layout.Fragments.ContratoFragment;
 import com.example.showseek.layout.Fragments.PerfilFragment;
 import com.example.showseek.layout.Fragments.WelcomeFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class InicioActivity extends AppCompatActivity {
 
+    private boolean clicked = false;
+
     FragmentTransaction nav;
     Fragment welcome, buscar, contrato, perfil;
+
 
 
     @Override
@@ -71,8 +77,43 @@ public class InicioActivity extends AppCompatActivity {
                 prueba = "Se entra a perfil";
                 Log.d("Fragment al que entra: ",prueba);
                 break;
+            case R.id.boton_flotante_menu:
+                    onBotonMenuClicked();
+                break;
+
+            case R.id.boton_flotante_perfil:
+                break;
+
+            case R.id.boton_flotante_clave:
+                break;
+
+            case R.id.boton_flotante_recibo:
+                break;
         }
 
         nav.commit();
+    }
+
+    private void onBotonMenuClicked(){
+        setVisibiliy(clicked);
+       clicked = !clicked;
+    }
+
+    private void setVisibiliy(Boolean clicked){
+        if(!clicked){
+            View botonPerfil = findViewById(R.id.boton_flotante_perfil);
+            botonPerfil.setVisibility(View.VISIBLE);
+            View botonClave = findViewById(R.id.boton_flotante_clave);
+            botonClave.setVisibility(View.VISIBLE);
+            View botonRecibo = findViewById(R.id.boton_flotante_recibo);
+            botonRecibo.setVisibility(View.VISIBLE);
+        }else{
+            View botonPerfil = findViewById(R.id.boton_flotante_perfil);
+            botonPerfil.setVisibility(View.INVISIBLE);
+            View botonClave = findViewById(R.id.boton_flotante_clave);
+            botonClave.setVisibility(View.INVISIBLE);
+            View botonRecibo = findViewById(R.id.boton_flotante_recibo);
+            botonRecibo.setVisibility(View.INVISIBLE);
+        }
     }
 }

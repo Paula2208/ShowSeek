@@ -22,7 +22,7 @@
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/content_detail_artista.xml" value="0.17527173913043478" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_blank.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_buscar.xml" value="0.4" />
-        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_contrato.xml" value="0.1" />
+        <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_contrato.xml" value="0.264" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_detail_artista.xml" value="0.25" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_inicio.xml" value="0.264" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_inicio_cliente.xml" value="0.22604166666666667" />
@@ -30,6 +30,10 @@
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_perfil.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/fragment_welcome.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/paula/AndroidStudioProjects/ShowSeek/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/santi/AndroidStudioProjects/ShowSeek/app/src/main/res/drawable/fondo_eti_fab.xml" value="0.3675" />
+        <entry key="..\:/Users/santi/AndroidStudioProjects/ShowSeek/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2765" />
+        <entry key="..\:/Users/santi/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_inicio.xml" value="0.33" />
+        <entry key="..\:/Users/santi/AndroidStudioProjects/ShowSeek/app/src/main/res/layout/activity_main.xml" value="0.278125" />
       </map>
     </option>
   </component>
