@@ -3,120 +3,134 @@ package com.example.showseek.objects;
 public class Contrato implements Comparable<Contrato>{
 
     //Atributes
-    private int ID;
-    private int ID_artista;
-    private int ID_cliente;
-    private boolean aceptado;
-    private String fecha_evento;
-    private String hora_evento;
-    private int costo_final;
-    private int costo_oferta;
-    private String ciudad_evento;
-    private int ID_repertorio;
-    private String direccion_evento;
+    private int ID_Contrato;
+    private int ID_Artista;
+    private int ID_Cliente;
+    private String Aceptado;
+    private String Fecha_Evento;
+    private String Hora_Evento;
+    private String Costo_Final;
+    private String Costo_Oferta;
+    private String Ciudad_evento;
+    private int ID_Repertorio;
+    private String Direccion_evento;
 
     //Constructor
-    public Contrato(int ID,int ID_artista, int ID_cliente, boolean aceptado,
-                    String fecha_evento, String hora_evento, int costo_final,
-                    int costo_oferta, String ciudad_evento, int ID_repertorio,
-                    String direccion_evento) {
-        this.ID = ID;
-        this.ID_artista = ID_artista;
-        this.ID_cliente = ID_cliente;
-        this.aceptado = aceptado;
-        this.fecha_evento = fecha_evento;
-        this.hora_evento = hora_evento;
-        this.costo_final = costo_final;
-        this.costo_oferta = costo_oferta;
-        this.ciudad_evento = ciudad_evento;
-        this.ID_repertorio = ID_repertorio;
-        this.direccion_evento = direccion_evento;
+    public Contrato(int ID_Contrato,int ID_Artista, int ID_Cliente, String Aceptado,
+                    String Fecha_Evento, String Hora_Evento, String Costo_Final,
+                    String Costo_Oferta, String Ciudad_evento, int ID_Repertorio,
+                    String Direccion_evento) {
+        this.ID_Contrato = ID_Contrato;
+        this.ID_Artista = ID_Artista;
+        this.ID_Cliente = ID_Cliente;
+        this.Aceptado = Aceptado;
+        this.Fecha_Evento = Fecha_Evento;
+        this.Hora_Evento = Hora_Evento;
+        this.Costo_Final = Costo_Final;
+        this.Costo_Oferta = Costo_Oferta;
+        this.Ciudad_evento = Ciudad_evento;
+        this.ID_Repertorio = ID_Repertorio;
+        this.Direccion_evento = Direccion_evento;
+    }
+
+    public Contrato(){
+
     }
 
     //Getters ans Setters
-    public int getID_artista() {
-        return ID_artista;
+
+
+    public String isAceptado() {
+        return Aceptado;
     }
 
-    public void setID_artista(int ID_artista) {
-        this.ID_artista = ID_artista;
+    public void setAceptado(String aceptado) {
+        Aceptado = aceptado;
     }
 
-    public int getID_cliente() {
-        return ID_cliente;
+    public String getFecha_Evento() {
+        return Fecha_Evento;
     }
 
-    public void setID_cliente(int ID_cliente) {
-        this.ID_cliente = ID_cliente;
+    public void setFecha_Evento(String fecha_Evento) {
+        Fecha_Evento = fecha_Evento;
     }
 
-    public boolean isAceptado() {
-        return aceptado;
+    public String getHora_Evento() {
+        return Hora_Evento;
     }
 
-    public void setAceptado(boolean aceptado) {
-        this.aceptado = aceptado;
+    public void setHora_Evento(String hora_Evento) {
+        Hora_Evento = hora_Evento;
     }
 
-    public String getFecha_evento() {
-        return fecha_evento;
+    public String getCosto_Final() {
+        return Costo_Final;
     }
 
-    public void setFecha_evento(String fecha_evento) {
-        this.fecha_evento = fecha_evento;
+    public void setCosto_Final(String costo_Final) {
+        Costo_Final = costo_Final;
     }
 
-    public String getHora_evento() {
-        return hora_evento;
+    public String getCosto_Oferta() {
+        return Costo_Oferta;
     }
 
-    public void setHora_evento(String hora_evento) {
-        this.hora_evento = hora_evento;
+    public void setCosto_Oferta(String costo_Oferta) {
+        Costo_Oferta = costo_Oferta;
     }
 
-    public int getCosto_final() {
-        return costo_final;
+    public int getID_Contrato() {
+        return ID_Contrato;
     }
 
-    public void setCosto_final(int costo_final) {
-        this.costo_final = costo_final;
+    public void setID_Contrato(int ID_Contrato) {
+        this.ID_Contrato = ID_Contrato;
     }
 
-    public int getCosto_oferta() {
-        return costo_oferta;
+    public int getID_Artista() {
+        return ID_Artista;
     }
 
-    public void setCosto_oferta(int costo_oferta) {
-        this.costo_oferta = costo_oferta;
+    public void setID_Artista(int ID_Artista) {
+        this.ID_Artista = ID_Artista;
+    }
+
+    public int getID_Cliente() {
+        return ID_Cliente;
+    }
+
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
     public String getCiudad_evento() {
-        return ciudad_evento;
+        return Ciudad_evento;
     }
 
     public void setCiudad_evento(String ciudad_evento) {
-        this.ciudad_evento = ciudad_evento;
+        this.Ciudad_evento = ciudad_evento;
     }
 
     public int getID_repertorio() {
-        return ID_repertorio;
+        return ID_Repertorio;
     }
 
     public void setID_repertorio(int ID_repertorio) {
-        this.ID_repertorio = ID_repertorio;
+        this.ID_Repertorio = ID_repertorio;
     }
 
     public String getDireccion_evento() {
-        return direccion_evento;
+        return Direccion_evento;
     }
 
     public void setDireccion_evento(String direccion_evento) {
-        this.direccion_evento = direccion_evento;
+        Direccion_evento = direccion_evento;
     }
 
     //Methods
     public Factura getFactura(){
-        Factura factura = new Factura(ID_cliente,ID_artista,costo_final);
+        Factura factura = new Factura(ID_Cliente,ID_Artista,Costo_Final);
         return factura;
     }
 
@@ -124,10 +138,10 @@ public class Contrato implements Comparable<Contrato>{
     @Override
     public int compareTo(Contrato o) {
         int comparation = 0;
-        if(ID_cliente>o.getID_cliente()){
+        if(ID_Cliente>o.getID_Cliente()){
             comparation = 1;
         }
-        else if(ID_cliente<o.getID_cliente()){
+        else if(ID_Cliente<o.getID_Cliente()){
             comparation = -1;
         }
         else{

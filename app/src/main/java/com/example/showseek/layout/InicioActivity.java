@@ -41,6 +41,7 @@ public class InicioActivity extends AppCompatActivity {
         buscar = new BuscarFragment();
         contrato = new ContratoFragment();
         perfil = new PerfilFragment();
+        perfil.setArguments(args);
 
         getSupportFragmentManager().beginTransaction().add(R.id.contenedor_inicio,welcome).commit();
     }

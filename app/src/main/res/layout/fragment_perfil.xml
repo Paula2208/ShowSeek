@@ -6,15 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".layout.Fragments.PerfilFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="361dp"
-        android:layout_height="50dp"
-        android:text="aqui va el perfil para hacer modificaciones"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/banner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:fontFamily="cursive"
+                android:text="ShowSeek"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/fullNameA"
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:ems="10"
+                android:hint="Nombre Completo"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/ageA"
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:ems="10"
+                android:hint="Edad"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp" />
+
+            <CheckBox
+                android:id="@+id/checkArtistaA"
+                android:layout_width="341dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="49dp"
+                android:layout_marginEnd="52dp"
+                android:text="Quiero ser parte de ShowSeek Artistas" />
+
+            <Button
+                android:id="@+id/actualizarUser"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="#9C27B0"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:text="Actualizar Datos" />
+
+            <ProgressBar
+                android:id="@+id/progressBarA"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:indeterminate="true"
+                android:indeterminateTint="#9C27B0"
+                android:max="100"
+                android:minHeight="24dp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
