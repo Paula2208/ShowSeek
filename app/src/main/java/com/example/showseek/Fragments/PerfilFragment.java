@@ -90,12 +90,12 @@ public class PerfilFragment extends Fragment {
                 @Override
                 public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                     progress.setVisibility(v.GONE);
-                    Toast.makeText(getContext(),"Datos de Usuario Correctamente Actualizados", Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(),"Datos de Usuario Correctamente Actualizados", Toast.LENGTH_SHORT).show();
                 }
             });
         }
         catch (Exception e){
-            Toast.makeText(getContext(),"Error al actualizar los datos del Usuario", Toast.LENGTH_SHORT);
+            Toast.makeText(getContext(),"Error al actualizar los datos del Usuario", Toast.LENGTH_SHORT).show();
         }
 
 

@@ -7,6 +7,7 @@ public class Usuario {
     private String correo;
     private String fecha_nacimiento;
     private String tipo ;
+    private int firma;
 
     //Constructor
     public Usuario(int ID, String nombre, String correo, String fecha_nacimiento, String tipo) {
@@ -29,7 +30,7 @@ public class Usuario {
         this.nombre=fullname;
         this.fecha_nacimiento = age;
         this.correo = correo;
-
+        this.firma = 0;
     }
 
     public Usuario(int ID,String fullname, String age, String correo){
@@ -37,6 +38,14 @@ public class Usuario {
         this.nombre=fullname;
         this.fecha_nacimiento = age;
         this.correo = correo;
+    }
+
+    public Usuario(int ID,String fullname, String age, String correo, int firma){
+        this.ID = ID;
+        this.nombre=fullname;
+        this.fecha_nacimiento = age;
+        this.correo = correo;
+        this.firma = firma;
     }
 
     //Getters and Setters
@@ -78,5 +87,13 @@ public class Usuario {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public int getFirma() {
+        return firma;
+    }
+
+    public void setFirma(int firma) {
+        this.firma = firma;
     }
 }
