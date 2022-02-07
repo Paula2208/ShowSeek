@@ -4,10 +4,10 @@ public class Factura implements Comparable<Factura>{
     //Atributes
     private int ID_Cliente;
     private int ID_artista;
-    private int costo_final;
+    private String costo_final;
 
     //Constructor
-    public Factura(int ID_Cliente, int ID_artista, int costo_final) {
+    public Factura(int ID_Cliente, int ID_artista, String costo_final) {
         this.ID_Cliente = ID_Cliente;
         this.ID_artista = ID_artista;
         this.costo_final = costo_final;
@@ -30,11 +30,11 @@ public class Factura implements Comparable<Factura>{
         this.ID_artista = ID_artista;
     }
 
-    public int getCosto_final() {
+    public String getCosto_final() {
         return costo_final;
     }
 
-    public void setCosto_final(int costo_final) {
+    public void setCosto_final(String costo_final) {
         this.costo_final = costo_final;
     }
 
@@ -42,7 +42,7 @@ public class Factura implements Comparable<Factura>{
     @Override
     public int compareTo(Factura o) {
         int comparation = 0;
-        if(costo_final>o.getCosto_final()){
+        /*if(costo_final>o.getCosto_final()){
             comparation = 1;
         }
         else if(costo_final<o.getCosto_final()){
@@ -50,7 +50,7 @@ public class Factura implements Comparable<Factura>{
         }
         else{
             comparation = 0;
-        }
+        }*/
         return comparation;
     }
 }
