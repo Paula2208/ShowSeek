@@ -21,7 +21,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="424dp"
+                android:layout_height="448dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -78,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#FFFFFF"
                     android:clickable="true"
+                    android:onClick="onClick"
                     android:text="¡Te quiero en mi Evento!"
                     android:textColor="#9C27B0"
                     android:textStyle="bold"

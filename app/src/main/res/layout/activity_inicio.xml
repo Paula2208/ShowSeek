@@ -8,113 +8,129 @@
     android:orientation="vertical"
     tools:context=".layout.InicioActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#9C27B0"
-            android:minHeight="48dp"
-            android:onClick="onClick"
-            android:src="@drawable/ic_baseline_search_lupa"
-            app:cornerRadius="20dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <ImageButton
-            android:id="@+id/files"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#9C27B0"
-            android:cropToPadding="false"
-            android:onClick="onClick"
-            android:src="@drawable/ic_baseline_insert_drive_file_24"
-            app:cornerRadius="20dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <ImageButton
-            android:id="@+id/account"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#9C27B0"
-            android:onClick="onClick"
-            android:src="@drawable/ic_baseline_person_24"
-            app:cornerRadius="20dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/contenedor_inicio"
-        android:layout_width="match_parent"
-        android:layout_height="226dp">
-
-    </FrameLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/boton_flotante_menu"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="onClick"
-            android:tint="@android:color/white"
-            app:backgroundTint="#9C27B0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_menu_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:orientation="vertical" >
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/boton_flotante_clave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="invisible"
-            app:backgroundTint="#9C27B0"
-            app:layout_constraintBottom_toTopOf="@+id/boton_flotante_menu"
-            app:layout_constraintEnd_toEndOf="@+id/boton_flotante_menu"
-            app:srcCompat="@drawable/ic_baseline_vpn_key_24" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/boton_flotante_recibo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="invisible"
-            app:backgroundTint="#9C27B0"
-            app:layout_constraintBottom_toTopOf="@+id/boton_flotante_clave"
-            app:layout_constraintEnd_toEndOf="@+id/boton_flotante_clave"
-            app:srcCompat="@drawable/ic_baseline_search_lupa" />
+                <ImageButton
+                    android:id="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9C27B0"
+                    android:minHeight="48dp"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_baseline_search_lupa"
+                    app:cornerRadius="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/boton_flotante_perfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="invisible"
-            app:backgroundTint="#9C27B0"
-            app:layout_constraintBottom_toTopOf="@+id/boton_flotante_recibo"
-            app:layout_constraintEnd_toEndOf="@+id/boton_flotante_recibo"
-            app:srcCompat="@drawable/ic_baseline_person_24" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageButton
+                    android:id="@+id/files"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9C27B0"
+                    android:cropToPadding="false"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_baseline_insert_drive_file_24"
+                    app:cornerRadius="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <ImageButton
+                    android:id="@+id/account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9C27B0"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_baseline_person_24"
+                    app:cornerRadius="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/contenedor_inicio"
+                android:layout_width="match_parent"
+                android:layout_height="508dp">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/boton_flotante_perfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    android:translationX="-50dp"
+                    android:translationY="5dp"
+                    android:visibility="invisible"
+                    app:backgroundTint="#9C27B0"
+                    app:srcCompat="@drawable/ic_baseline_person_24" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/boton_flotante_recibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    android:translationX="-30dp"
+                    android:translationY="5dp"
+                    android:visibility="invisible"
+                    app:backgroundTint="#9C27B0"
+                    app:srcCompat="@drawable/ic_baseline_search_lupa" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/boton_flotante_clave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    android:translationX="-12dp"
+                    android:translationY="5dp"
+                    android:visibility="invisible"
+                    app:backgroundTint="#9C27B0"
+                    app:srcCompat="@drawable/ic_baseline_vpn_key_24" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/boton_flotante_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    android:tint="@android:color/white"
+                    android:translationY="5dp"
+                    app:backgroundTint="#9C27B0"
+                    app:srcCompat="@drawable/ic_baseline_menu_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

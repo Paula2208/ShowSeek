@@ -84,7 +84,7 @@ public class InicioActivity extends AppCompatActivity {
             case R.id.boton_flotante_perfil:
 
                 //Perfil Artista
-                Intent arPerfil = new Intent(InicioActivity.this, FirmaElectronica.class);
+                Intent arPerfil = new Intent(InicioActivity.this, PerfilArtista.class);
                 arPerfil.putExtra("tipo",tipo);
                 arPerfil.putExtra("nombre",nombre);
                 arPerfil.putExtra("clave",key);

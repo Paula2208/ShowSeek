@@ -56,7 +56,8 @@ public class DetailArtista extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnCrearContrato:
-                //startActivity(new Intent(this, FormularioContrato.class));
+                startActivity(new Intent(this, CreacionContrato.class));
+                finish();
                 break;
         }
     }
