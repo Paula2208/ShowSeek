@@ -7,6 +7,7 @@
     tools:context=".layout.CreacionContrato">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="355dp"
         android:layout_height="411dp"
         android:background="#9A9C27B0"
@@ -97,4 +98,15 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#989C27B0"
+        android:text="Enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
