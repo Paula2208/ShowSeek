@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         inicio.putExtra("clave",key);
                                         inicio.putExtra("tipo",ar.getTipo());
                                         startActivity(inicio);
+                                        progressBar.setVisibility(View.GONE);
                                         break;
                                     }
 

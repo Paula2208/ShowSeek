@@ -9,8 +9,8 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txt_welcome"
-        android:layout_width="423dp"
-        android:layout_height="284dp"
+        android:layout_width="424dp"
+        android:layout_height="178dp"
         android:background="#FFFFFF"
         android:fontFamily="sans-serif-black"
         android:text="¡Bienvenido a ShowSeek!"

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShowSeek">
         <activity
+            android:name=".layout.PerfilArtista"
+            android:exported="false" />
+        <activity
             android:name=".layout.VistaFacturacion"
             android:exported="false" />
         <activity

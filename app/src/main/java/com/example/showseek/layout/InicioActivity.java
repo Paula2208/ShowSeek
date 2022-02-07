@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +17,12 @@ import com.example.showseek.layout.Fragments.WelcomeFragment;
 
 public class InicioActivity extends AppCompatActivity {
 
+    private boolean clicked = false;
     FragmentTransaction nav;
     Fragment welcome, buscar, contrato, perfil;
+    String tipo;
+    String nombre;
+    String key;
 
 
     @Override
@@ -27,9 +32,9 @@ public class InicioActivity extends AppCompatActivity {
 
         Bundle datos = getIntent().getExtras();
 
-        String nombre = datos.getString("nombre");
-        String tipo = datos.getString("tipo");
-        String key = datos.getString("clave");
+        nombre = datos.getString("nombre");
+        tipo = datos.getString("tipo");
+        key = datos.getString("clave");
 
         Bundle args = new Bundle();
 
@@ -71,8 +76,70 @@ public class InicioActivity extends AppCompatActivity {
                 prueba = "Se entra a perfil";
                 Log.d("Fragment al que entra: ",prueba);
                 break;
+
+            case R.id.boton_flotante_menu:
+                onBotonMenuClicked();
+                break;
+
+            case R.id.boton_flotante_perfil:
+
+                //Perfil Artista
+                Intent arPerfil = new Intent(InicioActivity.this, FirmaElectronica.class);
+                arPerfil.putExtra("tipo",tipo);
+                arPerfil.putExtra("nombre",nombre);
+                arPerfil.putExtra("clave",key);
+                startActivity(arPerfil);
+                break;
+
+            case R.id.boton_flotante_clave:
+
+                //Crear Clave Electrónica
+                Intent clave = new Intent(InicioActivity.this, FirmaElectronica.class);
+                clave.putExtra("tipo",tipo);
+                clave.putExtra("nombre",nombre);
+                startActivity(clave);
+                break;
+
+            case R.id.boton_flotante_recibo:
+
+                //Crear Facturas
+                Intent facturas = new Intent(InicioActivity.this, VistaFacturacion.class);
+                facturas.putExtra("tipo",tipo);
+                facturas.putExtra("nombre",nombre);
+                facturas.putExtra("clave",key);
+                startActivity(facturas);
+                break;
         }
 
         nav.commit();
+    }
+
+    private void onBotonMenuClicked(){
+        setVisibiliy(clicked);
+        clicked = !clicked;
+    }
+
+    private void setVisibiliy(Boolean clicked){
+        if(!clicked){
+
+
+            View botonClave = findViewById(R.id.boton_flotante_clave);
+            botonClave.setVisibility(View.VISIBLE);
+            View botonRecibo = findViewById(R.id.boton_flotante_recibo);
+            botonRecibo.setVisibility(View.VISIBLE);
+
+            if(tipo.compareTo("artista") == 0){
+                View botonPerfil = findViewById(R.id.boton_flotante_perfil);
+                botonPerfil.setVisibility(View.VISIBLE);
+            }
+
+        }else{
+            View botonPerfil = findViewById(R.id.boton_flotante_perfil);
+            botonPerfil.setVisibility(View.INVISIBLE);
+            View botonClave = findViewById(R.id.boton_flotante_clave);
+            botonClave.setVisibility(View.INVISIBLE);
+            View botonRecibo = findViewById(R.id.boton_flotante_recibo);
+            botonRecibo.setVisibility(View.INVISIBLE);
+        }
     }
 }
